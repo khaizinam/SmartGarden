@@ -1,0 +1,38 @@
+.form-log {
+    font-size: 20px;
+    padding: 20px 20px;
+    width: 90%;
+    min-height: 200px;
+    margin: 20px auto;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.err {
+    font-size: 15px;
+    color: red;
+}
+
+.btn-sign-in,
+.btn-fogot {
+    width: 150px;
+    height: 30px;
+    background-color: skyblue;
+    border: 1px solid gray;
+    margin: 8px 0px;
+    border-radius: 20px;
+}
+
+.btn-sign-in:hover,
+.btn-fogot:hover {
+    background-color: skyblue;
+    border: 1px solid black;
+}
+
+.form-log input {
+    font-size: 20px;
+    height: 25px;
+    width: 200px;
+    padding: 5px 20px;
+    border-radius: 10px;
+}

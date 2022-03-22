@@ -1,0 +1,134 @@
+#body {
+    height: calc(100% - 50px);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+#conponent-1 {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#conponent-1-left,
+#conponent-1-right {
+    width: 50%;
+}
+
+:root {
+    --w-rect: 150px;
+}
+
+.wrapper-user {
+    position: absolute;
+    height: var(--w-rect);
+    width: var(--w-rect);
+    top: 50px;
+    left: calc(50% - var(--w-rect) / 2);
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+}
+
+.wrapper-user img {
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.wrapper-user img:hover {
+    scale: 1.2;
+}
+
+.bar-1 {
+    background-color: gray;
+    height: 30px;
+    width: clac(100% - 40px);
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.component-head {
+    background-color: black;
+    height: 200px;
+    position: relative;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.box-1 {
+    display: block;
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    height: 35px;
+    width: 80%;
+    min-width: 120px;
+    margin: 10px auto;
+    border-radius: 30px;
+    text-align: center;
+    padding: 5px 5px;
+}
+
+#temperature {
+    color: orange;
+}
+
+#soil-moisture {
+    color: skyblue;
+}
+
+#solar-input {
+    color: yellow;
+}
+
+#hunidity {
+    color: green;
+}
+
+#battery-voltage {
+    color: red;
+}
+
+#water {
+    color: blue;
+}
+
+#bar-bottom {
+    position: fixed;
+    bottom: 0px;
+    height: 50px;
+}
+
+.list-mod {
+    width: 90%;
+    margin: 0px auto;
+}
+
+.btn-mod {
+    width: 70px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.list-mod-2 li span {
+    margin: auto 0px auto 20px;
+}
+
+.list-mod-2 li {
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    min-height: 30px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border-radius: 30px;
+    font-weight: bold;
+}
