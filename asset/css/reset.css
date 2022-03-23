@@ -1,6 +1,6 @@
 :root {
     --bg-color: none;
-    --body-color: none;
+    --body-color: white;
     --header-color: none;
 }
 
@@ -18,7 +18,6 @@ li {
 body {
     font-size: 15px;
     background-color: var(--body-color);
-    background: linear-gradient(128deg, #CCE0F3, #80A4CB);
 }
 
 html,

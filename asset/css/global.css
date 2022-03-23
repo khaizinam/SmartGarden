@@ -1,5 +1,5 @@
 #body {
-    height: calc(100% - 50px);
+    height: 100%;
     overflow-y: scroll;
     -ms-overflow-style: none;
     /* IE and Edge */
@@ -8,7 +8,7 @@
 }
 
 #conponent-1 {
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
 }
@@ -43,8 +43,10 @@
 }
 
 .bar-1 {
-    background-color: gray;
     height: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
     width: clac(100% - 40px);
     padding: 5px 20px;
     display: flex;
@@ -107,14 +109,20 @@
 .list-mod {
     width: 90%;
     margin: 0px auto;
+    text-align: center;
 }
 
 .btn-mod {
     width: 70px;
     height: 40px;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid gray;
     border-radius: 10px;
+}
+
+.btn-mod:hover {
+    border: 1px solid black;
+    background-color: gray;
 }
 
 .list-mod-2 li span {
@@ -131,4 +139,12 @@
     font-size: 20px;
     border-radius: 30px;
     font-weight: bold;
+    margin: 20px 0px;
+}
+
+#q-micro {
+    width: 300px;
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 15px;
 }
