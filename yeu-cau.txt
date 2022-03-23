@@ -1,0 +1,10 @@
+1. trang đăng kí mới micro bit :
+
+ + accesstoken
+ + tên microbit
+ + nút quay về
+
+2. trang cài đặt microbit :
+ + độ ngưỡng trên của độ ẩm
+ + độ ngưỡng dưới độ ẩm đất
+ + nút quay về
