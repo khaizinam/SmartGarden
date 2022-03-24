@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./asset/css/style.css">
     <link rel="stylesheet" href="./asset/css/global.css">
     <link rel="stylesheet" href="./asset/css/log.css">
+    <link rel="stylesheet" href="./asset/css/dung.css">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <script src="./asset/js/jquery.min.js"></script>
     <title>SmartGaden</title>
@@ -18,7 +19,67 @@
 
 <body>
     <div id="wrapper-all" class="container">
+        <h2 style="text-align:center">Microbitname #1007</h2>
+
+        <div style="display: flex;justify-content: space-between;">
+            <button onclick="app.ChangeMainPage()" id="btn-mod" class="btn-mod">Trở về</button>
+        </div>
+
+        <div class="dung__card">
+            <div class="dung__card_card">
+                <div class="dung_block1">
+                    <div class="dung__card_card_img">
+                        <img src="./asset/img/humidity1.jpg" alt="Humidity icon">
+                    </div>
+                    <h3>Humidity</h3>
+                    <h2>20%</h2>
+                </div>
+                <div class="dung_block2">
+                    <div class="dung__button">
+                        <h4>Upper threshold: </h4>
+                        <button>-</button>
+                        <input type="number">
+                        <button>+</button>
+                    </div>
+                    <div class="dung__button">
+                        <h4>Lower threshold: </h4>
+                        <button>-</button>
+                        <input type="number">
+                        <button>+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dung__card_card">
+                <div class="dung_block1">
+                    <div class="dung__card_card_img">
+                        <img src="./asset/img/soilmoisture3.png" alt="Soil Moisture icon">
+                    </div>
+                    <h3>Soil Moisture</h3>
+                    <h2>30%</h2>
+                </div>
+                <div class="dung_block2">
+                    <div class="dung__button">
+                        <h4>Upper threshold: </h4>
+                        <button>-</button>
+                        <input type="number">
+                        <button>+</button>
+                    </div>
+                    <div class="dung__button">
+                        <h4>Lower threshold: </h4>
+                        <button>-</button>
+                        <input type="number">
+                        <button>+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+    </div>
+
+
     <!-- <script src="./asset/js/app.js"></script> -->
 </body>
 

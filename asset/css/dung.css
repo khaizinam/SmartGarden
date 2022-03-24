@@ -1,0 +1,97 @@
+.container {
+    background-color: aqua;
+}
+
+.dung__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dung__card_card {
+    height: 100%;
+    width: 90%;
+    /* background-image: linear-gradient(to bottom, rgba(0, 95, 0, 0.75), rgba(0, 128, 0, 0.5), rgba(0, 95, 0, 0.75)); */
+    background-image: linear-gradient(to bottom, rgba(0, 0, 255, 0.65), rgba(54, 54, 240, 0.5), rgba(0, 0, 255, 0.65));
+    margin: 10px 0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dung__card_card:last-child {
+    background-image: linear-gradient(to bottom, rgba(114, 42, 0, 0.75), rgba(161, 68, 13, 0.5), rgba(114, 42, 0, 0.75));
+}
+
+.dung_block1 {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.dung_block2 {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.dung__button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dung_block2 h4 {
+    margin: 10px;
+    font-size: 25px;
+}
+
+.dung_block2 button {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    margin: auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dung_block2 input {
+    height: 30px;
+    width: 200px;
+    padding: 5px 20px;
+    font-size: 25px;
+}
+
+.dung__card_card_img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.dung__card_card_img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+}
+
+.dung_block1 h3 {
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.dung_block1 h2 {
+    margin-top: 10px;
+    font-size: 50px;
+}
