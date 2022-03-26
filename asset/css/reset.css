@@ -7,6 +7,10 @@
 * {
     margin: 0px 0px;
     padding: 0px 0px;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 ul,
@@ -26,7 +30,8 @@ body {
 }
 
 .container {
-    margin: 0px auto;
+    margin-left: auto;
+    margin-right: auto;
     width: 960px;
 }
 
