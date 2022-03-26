@@ -12,18 +12,26 @@
 .dung__card_card {
     height: 100%;
     width: 90%;
+    padding: 10px;
     /* background-image: linear-gradient(to bottom, rgba(0, 95, 0, 0.75), rgba(0, 128, 0, 0.5), rgba(0, 95, 0, 0.75)); */
-    background-image: linear-gradient(to bottom, rgba(0, 0, 255, 0.65), rgba(54, 54, 240, 0.5), rgba(0, 0, 255, 0.65));
+    /* background-image: linear-gradient(to bottom, rgba(0, 0, 255, 0.65), rgba(54, 54, 240, 0.5), rgba(0, 0, 255, 0.65)); */
+    /* background: linear-gradient(to bottom, #2F56D5, #359BB7, #4CE199); */
+
     margin: 10px 0;
     border-radius: 20px;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .dung__card_card:last-child {
-    background-image: linear-gradient(to bottom, rgba(114, 42, 0, 0.75), rgba(161, 68, 13, 0.5), rgba(114, 42, 0, 0.75));
+    /* background-image: linear-gradient(to bottom, rgba(161, 38, 0, 0.75), rgba(177, 102, 16, 0.75), rgba(216, 153, 35, 0.75)); */
+    /* background: linear-gradient(to bottom, rgba(2, 170, 2, 0.85), rgba(40, 216, 5, 0.85), rgba(76, 250, 41, 0.8)); */
+
 }
+
 
 .dung_block1 {
     width: 30%;
@@ -44,39 +52,48 @@
     justify-content: center;
 }
 
+
+
 .dung__button {
     display: flex;
     justify-content: space-between;
 }
 
-.dung_block2 h4 {
+.dung__button label {
     margin: 10px;
     font-size: 25px;
 }
 
-.dung_block2 button {
-    width: 30px;
-    height: 30px;
+.dung__button button {
+    width: 34px;
+    height: 34px;
     font-size: 30px;
-    margin: auto 10px;
+    /* margin: auto 10px; */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
 }
 
-.dung_block2 input {
+.dung__button input {
     height: 30px;
     width: 200px;
-    padding: 5px 20px;
+    /* padding: 5px 0; */
     font-size: 25px;
+    margin: auto;
 }
 
 .dung__card_card_img {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
     overflow: hidden;
-    margin-top: 20px;
+    /* margin-top: 10px; */
+}
+
+.dung__card_card:first-child .dung__card_card_img {
+    /* background-image: linear-gradient(to bottom, rgba(161, 38, 0, 0.75), rgba(177, 102, 16, 0.75), rgba(216, 153, 35, 0.75)); */
+    /* background: linear-gradient(to bottom, rgba(2, 170, 2, 0.85), rgba(40, 216, 5, 0.85), rgba(76, 250, 41, 0.8)); */
+    border-radius: 50%;
 }
 
 .dung__card_card_img img {
@@ -86,12 +103,253 @@
     object-position: center;
 }
 
+
+.dung__button input[type="range"]{
+    width: 30px;
+    margin: auto 30px;
+}
+
 .dung_block1 h3 {
     margin-top: 10px;
     font-size: 30px;
 }
 
-.dung_block1 h2 {
+.dung__button_on-off{
     margin-top: 10px;
-    font-size: 50px;
+}
+
+.dung__button_on-off button{
+    background-color: skyblue; 
+    width: 70px; 
+    height: 35px; 
+    border-radius: 5px;
+}
+
+.dung__button_confirm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dung__button_confirm button{
+    width: 100px;
+    height: 35px;
+    margin: 15px 0;
+    background: #5BD849;
+    color: white;
+    font-size: 17px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+/*  */
+
+.dung__form_signup-microbit{
+    /* height: 500px; */
+    width: 40%;
+    margin: 10px auto;
+    padding:30px 30px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+form.dung__form {
+    /* display: table; */
+    margin: 0;
+}
+
+div.dung__form {
+    display: table-row;
+}
+
+div.dung__form label, div.dung__form input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+div.dung__form label {
+    padding-right: 10px;
+}
+
+
+
+.dung_lable_button{
+    display: flex;
+    padding: 2px;
+}
+
+.dung_lable_button label{
+    flex: 1;
+}
+
+.dung_lable_button input{
+    flex: 2;
+}
+
+
+
+
+/* .dung__form_list{
+    display: table;
+}
+
+.dung__form_list_ul{
+    padding: 0 75px;
+    margin: 10px 0;
+}  */
+
+
+.dung__form_list{
+    display: flex;
+    justify-content: center;
+}
+
+.dung__form_list_ul{
+    display: table;
+}
+
+
+
+.dung_block2.dung_signup{
+    width: 100%;
+    /* height: 70px; */
+}
+
+.dung__button.dung_signup label {
+    margin: 10px;
+    font-size: unset;
+}
+
+.dung__button.dung_signup button {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+}
+
+.dung__button.dung_signup input {
+    height: 20px;
+    width: 150px;
+    font-size: unset;
+}
+
+
+
+
+
+
+.dung__form_component{
+    padding: 10px 0;
+}
+
+
+.dung__form_component:first-child{
+    padding: 0 0;
+}
+
+.dung__form_component:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.dung__form_component:last-child input{
+    width: 73px;
+    height: 27px;
+    border-radius: 3px;
+    background: #5BD849;
+    color: white;
+}
+
+
+@media only screen and (max-width: 960px) {
+    .container {
+        width: 760px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .container {
+        width: 640px;
+    }
+    .dung__form_signup-microbit{
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .container {
+        width: 100%;
+        min-width: 240px;
+    }
+
+    .dung__card_card {
+        height: 100%;
+        width: 90%;
+        padding: 10px;
+    }
+
+    .dung_block1 {
+        width: 35%;
+        height: 100%;
+    }
+    
+    .dung_block2 {
+        width: 65%;
+        height: 100%;
+    }
+    
+    
+    .dung__button label {
+        font-size: unset;
+    }
+    
+    .dung__button button {
+        width: 21.5px;
+        height: 21.5px;
+        font-size: unset;
+
+    }
+    
+    .dung__button input {
+        height: unset;
+        width: 55px;
+        font-size: unset;
+    }
+    
+    .dung__card_card_img {
+        width: 90px;
+        height: 90px;
+        margin-top: 0px;
+    }
+    
+    
+    .dung_block1 h3 {
+        margin-top: 10px;
+        font-size: 25px;
+    }
+    
+    .dung__button_on-off button{
+        background-color: skyblue; 
+        width: 60px; 
+        height: 30px; 
+        border-radius: 5px;
+    }
+    
+    .dung__button_confirm button{
+        width: 90px;
+        height: 30px;
+        font-size: unset;
+    }
+    
+
+
+
+    .dung__form_signup-microbit{
+        width: 90%;
+    }
 }

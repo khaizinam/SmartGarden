@@ -174,7 +174,7 @@ class App {
             usrname.value != " " &&
             pw.value != "" &&
             pw.value != " ") {
-            $.get("http://localhost/Smartgarden/SmartGarden/server.com/gettoken.php", {
+            $.get("http://localhost/smartgarden/server.com/gettoken.php", {
                     username: usrname.value,
                     password: pw.value
                 },
