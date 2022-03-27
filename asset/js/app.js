@@ -111,18 +111,9 @@ class App {
             usrname.value != " " &&
             pw.value != "" &&
             pw.value != " ") {
-            // app.user = {
-            //     TOKEN: "100000000",
-            //     name: usrname.value,
-            //     id: "1002"
-            // }
-            // setCookie("token", app.user.TOKEN, "30");
-            // console.log(app.user.TOKEN + "\n" + app.user.id);
-            // app.ChangeMainPage();
-            $.get("https://khaizinam.000webhostapp.com/server/login.php", {
-                    type: "login",
-                    "user-name": usrname.value,
-                    "pass": pw.value
+            $.get("http://localhost/smartgarden/server.com/gettoken.php", {
+                    username: usrname.value,
+                    password: pw.value
                 },
                 function(data, status) {
                     if (status === 'success') {
