@@ -1,0 +1,94 @@
+1. trang đăng kí mới micro bit :
+
+ + accesstoken
+ + tên microbit
+ + nút quay về
+
+2. trang cài đặt microbit :
+ + độ ngưỡng trên của độ ẩm
+ + độ ngưỡng dưới độ ẩm đất
+ + nút quay về
+------------------------------------------------------------------------------------
+
+*checklogin.php
+ ->nhận GET['username'] và GET['password']
+ ->trả về : +Sai "fail"
+        +Đúng trả về hàm JSON này 
+        $data = array(
+            'token' => $row['token'],
+            'id'=>$row['user_id']
+            );
+    $json = json_encode($data);
+    echo $json;
+
+
+-----------------------------------------------------------------
+
+
+*getlist.php //list micro của ng dùng
+    -> nhận GET['token']
+    -> trả về 
+    $data = array();
+    while($rows = $sql->fetch_array()){
+        array_push($data, 
+        array(
+            'MicroBit_name' => $row['MicroBit_name'],
+            'MicroBit_id'=>$row['MicroBit_id'])
+            )
+        );
+    }
+    $json = json_encode($data);
+    echo $json;
+--------------------------------------------
+*addnewmicrobit.php    
+    -> nhận GET['token'] + GET['MicroBit_name']+ GET['MicroBit_AccessToken']
+    -> trả về 
+    UPDATE tên người sở hữu vào microbit,
+    echo "success";
+
+---------------------------------------------------
+*measure.php    
+    -> nhận GET['token'] + GET['MicroBit_id']
+    -> trả về 
+    $data = array(
+            'temperature' => $row['temperature'],
+            'soil_moisture'=>$row['soil_moisture'],
+            'solar_input'=>$row['solar_input'],
+            'humidity'=>$row['humidity'],
+            'batery'=>$row['batery'],
+            'water'=>$row['water']);
+    $json = json_encode($data);
+    echo $json;
+
+---------------------------------------------------
+
+
+*getmod.php
+    -> nhận GET['token'] + GET['MicroBit_id']
+    -> trả về 
+    $data = array(
+            'auto_water' => $row['auto_water'],
+            'upper_humidity'=>$row['upper_humidity'],
+            'lower_humidity'=>$row['lower_humidity'],
+            'water_power'=>$row['water_power']);
+    $json = json_encode($data);
+    echo $json;
+    
+---------------------------------------------------
+
+
+*updatemod.php
+    -> nhận GET['token'] + GET['MicroBit_id'] + GET['auto_water']+ 
+    GET['upper_humidity'] + GET['lower_humidity']
+    -> trả về 
+    UPDATE vào table.
+    echo "success";
+    
+---------------------------------------------------
+
+
+*switch.php
+    -> nhận GET['token'] + GET['MicroBit_id'] + GET['auto_water'] +  GET['water_power']
+    -> trả về 
+    UPDATE vào table.
+    echo "success";
