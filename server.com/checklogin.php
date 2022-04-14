@@ -1,12 +1,8 @@
 <?php 
 include "conn.php";
 $db = new DataBase();
-// $username = $_GET('username');
-// $password=$_GET('password');
-
-// test ===========
-$username = 'admin1';
-$password='1234';
+$username = $_GET['username'];
+$password=$_GET['password'];
 
 
 $query="SELECT user_id AS id ,user_token as token
