@@ -43,7 +43,6 @@ class App {
     /* ---------------------  UI SHOW PAGE ---------------------------  */
     showLoginpage() {
         document.getElementById("wrapper-all").innerHTML = LOGIN_PAGE;
-        this.messAlert("Bạn đã ra trang đăng nhập", document.getElementById("wrapper-all"));
     }
     ChangeMainPage() {
         this.showMainPage();
@@ -113,6 +112,7 @@ class App {
             pw.value != "" &&
             pw.value != " ") {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $.get(URL + "checklogin.php", {
                     username: usrname.value,
                     password: pw.value
@@ -130,6 +130,13 @@ class App {
                     "user-name": usrname.value,
                     "pass": pw.value
 >>>>>>> thanh
+=======
+
+            $.get(URL + "checklogin.php", {
+                    username: usrname.value,
+                    password: pw.value
+
+>>>>>>> thanh
                 },
                 function(data, status) {
                     if (status === 'success') {
@@ -141,15 +148,26 @@ class App {
                                     name: res.username,
                                     id: res.id
                                 }
+<<<<<<< HEAD
                                 setCookie("token", app.user.TOKEN, "30");
                                 setCookie("user-name", app.user.name, "30");
                                 setCookie("user-id", app.user.id, "30");
+=======
+
+                                setCookie("token", app.user.TOKEN, 30);
+                                setCookie("user-name", app.user.name, 30);
+                                setCookie("user-id", app.user.id, 30);
+>>>>>>> thanh
                                 console.log(app.user.TOKEN + "\n" + app.user.id + "\n" + app.user.name);
                                 app.ChangeMainPage();
                                 app.messAlert("Đăng nhập thành công" + data);
                             }
                         } else {
                             app.messAlert("Không kết nối được tới server!");
+<<<<<<< HEAD
+=======
+
+>>>>>>> thanh
                         }
                     }
                 });
@@ -197,6 +215,7 @@ class App {
     logout() {
         setCookie("token", "none", "30");
         this.showLoginpage();
+        this.messAlert("Bạn đã ra trang đăng nhập");
     }
     messAlert(e) {
         let modal = document.getElementsByClassName("modal")[0];

@@ -1,4 +1,13 @@
-const URL = "http://localhost/Smartgarden/SmartGarden/server.com/";
+const URL = "http://localhost/SmartGarden/server.com/";
+
+function isJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
 
 function isJsonString(str) {
     try {
