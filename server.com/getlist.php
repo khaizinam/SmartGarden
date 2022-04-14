@@ -22,8 +22,8 @@ if($numresult>0){
     while($row=$sql->fetch_array()){
         array_push($data,
             array(
-                'MicroBit_name'=>$row["microbit_name"],
-                'MicroBit_id'=>$row['microbit_id']
+                'name'=>$row["microbit_name"],
+                'id'=>$row['microbit_id']
             )
         );
     }
