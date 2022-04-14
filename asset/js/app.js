@@ -126,9 +126,9 @@ class App {
                                     name: res.username,
                                     id: res.id
                                 }
-                                setCookie("token", app.user.TOKEN, "30");
-                                setCookie("user-name", app.user.name, "30");
-                                setCookie("user-id", app.user.id, "30");
+                                setCookie("token", app.user.TOKEN, 30);
+                                setCookie("user-name", app.user.name, 30);
+                                setCookie("user-id", app.user.id, 30);
                                 console.log(app.user.TOKEN + "\n" + app.user.id + "\n" + app.user.name);
                                 app.ChangeMainPage();
                                 app.messAlert("Đăng nhập thành công" + data, document.getElementById("wrapper-all"));
