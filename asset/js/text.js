@@ -144,4 +144,167 @@ const LOGIN_PAGE = `<div class="form-log">
 <div style="border-top: 1px solid black;padding-top:5px">
 <button onclick="app.closeMess()" class="btn-close">Đóng</button>
 </div>
+</div>`,
+    CREATE_PAGE = `<h1 style="text-align:center">Đăng ký Microbit</h1>
+
+<div style="display: flex;justify-content: space-between;">
+    <button onclick="app.ChangeMainPage()" id="btn-mod" class="btn-mod">Trở về</button>
+</div>
+
+
+<div class="dung__form_signup-microbit">
+    <form action="" method="get" class="dung__form">
+        <div class="dung__form_component">
+            <div class="dung_lable_button">
+                <label for="button_access-token">Access token: </label>
+                <input type="text" id="button_access-token" name="button_access-token" required>
+            </div>
+            <div class="dung_lable_button">
+                <label for="button_name">Tên Microbit: </label>
+                <input type="text" id="button_name" name="button_name" required>
+            </div>
+        </div>
+
+        <div class="dung__form_component">
+            <p>Cài đặt độ ẩm:</p>
+            <div class="dung_block2 dung_signup">
+                <div class="dung__button dung_signup">
+                    <label for="humidity_upper">Ngưỡng trên </label>
+                    <button>-</button>
+                    <input type="number" id="humidity_upper" name="humidity_upper" required>
+                    <button>+</button>
+                </div>
+                <div class="dung__button dung_signup">
+                    <label for="humidity_lower">Ngưỡng dưới </label>
+                    <button>-</button>
+                    <input type="number" id="humidity_lower" name="humidity_lower" required>
+                    <button>+</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="dung__form_component">
+            <p>Cài đặt độ ẩm đất:</p>
+            <div class="dung_block2 dung_signup">
+                <div class="dung__button dung_signup">
+                    <label for="soil_upper">Ngưỡng trên </label>
+                    <button>-</button>
+                    <input type="number" id="soil_upper" name="soil_upper" required>
+                    <button>+</button>
+                </div>
+                <div class="dung__button dung_signup">
+                    <label for="soil_lower">Ngưỡng dưới </label>
+                    <button>-</button>
+                    <input type="number" id="soil_lower" name="soil_lower" required>
+                    <button>+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="dung__form_component">
+            <p>Danh sách thiết bị:</p>
+            <div class="dung__form_list">
+                <div class="dung__form_list_ul">
+                    <div class="dung__form">
+                        <label for="machine1">Máy đo độ ẩm đất</label>
+                        <input type="checkbox" id="machine1" name="machine1" value="A">
+                    </div>
+
+                    <div class="dung__form">
+                        <label for="machine2">Máy đo độ ẩm không khí</label>
+                        <input type="checkbox" id="machine2" name="machine2" value="B"><br />
+                    </div>
+
+                    <div class="dung__form">
+                        <label for="machine3">Máy đo nhiệt độ</label>
+                        <input type="checkbox" id="machine3" name="machine3" value="C"><br />
+                    </div>
+                </div>
+</div>
+</div>
+
+<div class="dung__form_component">
+<input type="submit" value="Xác nhận">
+</div>
+</form>
+</div>`,
+    SETTING_PAGE = `<h2 style="text-align:center">Microbitname #1007</h2>
+
+<div style="display: flex;justify-content: space-between;">
+    <button onclick="app.ChangeMainPage()" id="btn-mod" class="btn-mod">Trở về</button>
+</div>
+
+<div class="dung__card">
+    <div class="dung__card_card">
+        <div class="dung_block1">
+            <div class="dung__card_card_img">
+                <img src="./asset/img/humidity1.jpg" alt="Humidity icon">
+            </div>
+            <h3>Độ ẩm</h3>
+        </div>
+        <div class="dung_block2">
+            <div class="dung__button">
+                <label>Ngưỡng trên </label>
+                <button>-</button>
+                <input type="number">
+                <button>+</button>
+            </div>
+            <div class="dung__button">
+                <label>Ngưỡng dưới </label>
+                <button>-</button>
+                <input type="number">
+                <button>+</button>
+            </div>
+            <div class="dung__button_on-off">
+                <button>ON</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="dung__card_card">
+        <div class="dung_block1">
+            <div class="dung__card_card_img">
+                <img src="./asset/img/soilmoisture3.png" alt="Soil Moisture icon">
+            </div>
+            <h3>Độ ẩm đất</h3>
+        </div>
+        <div class="dung_block2">
+            <div class="dung__button">
+                <label>Ngưỡng trên </label>
+                <button>-</button>
+                <input type="number">
+                <button>+</button>
+            </div>
+            <div class="dung__button">
+                <label>Ngưỡng dưới </label>
+                <button>-</button>
+                <input type="number">
+                <button>+</button>
+            </div>
+            <div class="dung__button_on-off">
+                <button>ON</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dung__card_card">
+        <div class="dung_block1">
+            <div class="dung__card_card_img">
+                <img src="./asset/img/pumps.png" alt="Pumps icon">
+            </div>
+            <h3>Máy bơm</h3>
+        </div>
+        <div class="dung_block2">
+            <div class="dung__button">
+                <label for="button_auto">Tự động </label>
+                <input type="range" id="button_auto" name="button_auto" min="0" max="1">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dung__button_confirm">
+    <button >Xác nhận</button>
 </div>`;

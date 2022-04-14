@@ -65,7 +65,7 @@ class App {
         document.getElementById("wrapper-all").innerHTML = `<button onclick="app.ChangeMainPage()"  class="btn-mod">Trở về</button>`;
     }
     setting() {
-        document.getElementById("wrapper-all").innerHTML = `<button onclick="app.ChangeMainPage()"  class="btn-mod">Trở về</button>`;
+        document.getElementById("wrapper-all").innerHTML = SETTING_PAGE;
     }
     showMainPage() {
         document.getElementById("wrapper-all").innerHTML = MAIN_PAGE;
@@ -74,7 +74,8 @@ class App {
         document.getElementById("wrapper-all").innerHTML = PAGE_DETAIL;
     }
     addNewPage() {
-        document.getElementById("wrapper-all").innerHTML = `<button onclick="app.ChangeMainPage()"  class="btn-mod">Trở về</button>`;
+
+        document.getElementById("wrapper-all").innerHTML = CREATE_PAGE;
     }
     printname() {
             document.getElementById("user-name").innerHTML = this.user.name;

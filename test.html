@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./asset/css/style.css">
     <link rel="stylesheet" href="./asset/css/global.css">
     <link rel="stylesheet" href="./asset/css/log.css">
+    <link rel="stylesheet" href="./asset/css/dung.css">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <script src="./asset/js/jquery.min.js"></script>
     <title>SmartGaden</title>
@@ -18,62 +19,95 @@
 
 <body>
     <div id="wrapper-all" class="container">
-        <div id="body">
-            <div style="text-align:center;margin-top: 50px;">
-                <h3>Microbit 1 #1078</h3>
-            </div>
-            <table class="table-mod" border="1">
-                <tr>
-                    <th>a</th>
-                    <th>a</th>
-                    <th>a</th>
-                </tr>
-                <tr>
-                    <td>a</td>
-                    <td>a</td>
-                    <td>a</td>
-                </tr>
-                <tr>
-                    <td>a</td>
-                    <td>a</td>
-                    <td>a</td>
-                </tr>
-                <tr>
-                    <td>a</td>
-                    <td>a</td>
-                    <td>a</td>
-                </tr>
-                <tr>
-                    <td>a</td>
-                    <td>a</td>
-                    <td>a</td>
-                </tr>
-            </table>
+        <h1 style="text-align:center">Đăng ký Microbit</h1>
 
+        <div style="display: flex;justify-content: space-between;">
+            <button onclick="app.ChangeMainPage()" id="btn-mod" class="btn-mod">Trở về</button>
         </div>
-        <div class="modal">
-            <div style="height: 20px;background-color: gray;border-bottom: 1px solid black;">
-                <h3>Hộp thư</h3>
-            </div>
-            <div style="height: 230px;overflow-y: scroll;padding: 5px 10px;" id="modal-content">
-                <ul id="list-mess-box">
-                    <li>
-                        <button>Thành phần phát triển của chúng tôi...</button>
-                        <div class="red-dot"></div>
-                    </li>
-                    <li>
-                        <button>Thành phần phát triển của chúng tôi...</button>
-                    </li>
-                    <li>
-                        <button>Thành phần phát triển của chúng tôi...</button>
-                    </li>
-                </ul>
-            </div>
-            <div style="border-top: 1px solid black;padding-top:5px">
-                <button class="btn-close">Đóng</button>
-            </div>
+
+
+        <div class="dung__form_signup-microbit">
+            <form action="" method="get" class="dung__form">
+                <div class="dung__form_component">
+                    <div class="dung_lable_button">
+                        <label for="button_access-token">Access token: </label>
+                        <input type="text" id="button_access-token" name="button_access-token" required>
+                    </div>
+                    <div class="dung_lable_button">
+                        <label for="button_name">Tên Microbit: </label>
+                        <input type="text" id="button_name" name="button_name" required>
+                    </div>
+                </div>
+
+                <div class="dung__form_component">
+                    <p>Cài đặt độ ẩm:</p>
+                    <div class="dung_block2 dung_signup">
+                        <div class="dung__button dung_signup">
+                            <label for="humidity_upper">Ngưỡng trên </label>
+                            <button>-</button>
+                            <input type="number" id="humidity_upper" name="humidity_upper" required>
+                            <button>+</button>
+                        </div>
+                        <div class="dung__button dung_signup">
+                            <label for="humidity_lower">Ngưỡng dưới </label>
+                            <button>-</button>
+                            <input type="number" id="humidity_lower" name="humidity_lower" required>
+                            <button>+</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="dung__form_component">
+                    <p>Cài đặt độ ẩm đất:</p>
+                    <div class="dung_block2 dung_signup">
+                        <div class="dung__button dung_signup">
+                            <label for="soil_upper">Ngưỡng trên </label>
+                            <button>-</button>
+                            <input type="number" id="soil_upper" name="soil_upper" required>
+                            <button>+</button>
+                        </div>
+                        <div class="dung__button dung_signup">
+                            <label for="soil_lower">Ngưỡng dưới </label>
+                            <button>-</button>
+                            <input type="number" id="soil_lower" name="soil_lower" required>
+                            <button>+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dung__form_component">
+                    <p>Danh sách thiết bị:</p>
+                    <div class="dung__form_list">
+                        <div class="dung__form_list_ul">
+                            <div class="dung__form">
+                                <label for="machine1">Máy đo độ ẩm đất</label>
+                                <input type="checkbox" id="machine1" name="machine1" value="A">
+                            </div>
+
+                            <div class="dung__form">
+                                <label for="machine2">Máy đo độ ẩm không khí</label>
+                                <input type="checkbox" id="machine2" name="machine2" value="B"><br />
+                            </div>
+
+                            <div class="dung__form">
+                                <label for="machine3">Máy đo nhiệt độ</label>
+                                <input type="checkbox" id="machine3" name="machine3" value="C"><br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dung__form_component">
+                    <input type="submit" value="Xác nhận">
+                </div>
+            </form>
         </div>
+
     </div>
+
+
     <!-- <script src="./asset/js/app.js"></script> -->
 </body>
 
