@@ -3,7 +3,7 @@ define('SITE_URL', '');
 define('HOSTNAME', 'localhost');
 define('USERTNAME', 'root');
 define('PASS', '');
-define('DATABASEBNAME', 'data_web');
+define('DATABASEBNAME', 'data_microbit');
 
 
 header("Access-Control-Allow-Origin: *");
