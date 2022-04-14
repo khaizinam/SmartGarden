@@ -2,17 +2,17 @@
 
 include "conn.php";
 $db = new DataBase();
-// $user_token=$_GET('token');
+// $user_id=$_GET['id'];
 
 // test ============
-$user_token='0123456789abcdef';
+$user_id='1';
 
 
 $query="SELECT *
         FROM microbits AS M
         JOIN users AS U
             ON M.microbit_owner = U.user_id
-        WHERE U.user_token='$user_token'";
+        WHERE U.user_id='$user_id'";
 
 $numresult=$db->num($query);
 

@@ -23,15 +23,13 @@ DROP TABLE IF EXISTS `general_infor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `general_infor` (
-  `infor_id` int(11) NOT NULL AUTO_INCREMENT,
+  `infor_num` int(11) NOT NULL AUTO_INCREMENT,
   `microbit_id` int(3) NOT NULL,
   `air_humidity` float NOT NULL,
   `soil_moisture` float NOT NULL,
   `temperature` float NOT NULL,
-  `auto_watering` tinyint(1) NOT NULL,
-  `is_watering` tinyint(1) NOT NULL,
-  `pump_on` tinyint(1) NOT NULL,
-  PRIMARY KEY (`infor_id`,`microbit_id`),
+  `infor_time` datetime NOT NULL,
+  PRIMARY KEY (`infor_num`,`microbit_id`),
   KEY `FK_MICROBITS` (`microbit_id`),
   CONSTRAINT `FK_MICROBITS` FOREIGN KEY (`microbit_id`) REFERENCES `microbits` (`microbit_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -63,7 +61,7 @@ CREATE TABLE `microbits` (
   PRIMARY KEY (`microbit_id`),
   KEY `FK_OWNER` (`microbit_owner`),
   CONSTRAINT `FK_OWNER` FOREIGN KEY (`microbit_owner`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,13 +82,9 @@ DROP TABLE IF EXISTS `pump_infor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pump_infor` (
-  `pump_id` int(11) NOT NULL AUTO_INCREMENT,
   `microbit_id` int(3) NOT NULL,
   `timeOn` datetime NOT NULL,
-  `timeOff` datetime NOT NULL,
-  PRIMARY KEY (`pump_id`,`microbit_id`),
-  KEY `FK_MIROBITPUMP` (`microbit_id`),
-  CONSTRAINT `FK_MIROBITPUMP` FOREIGN KEY (`microbit_id`) REFERENCES `microbits` (`microbit_id`)
+  `timeOff` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -101,6 +95,30 @@ CREATE TABLE `pump_infor` (
 LOCK TABLES `pump_infor` WRITE;
 /*!40000 ALTER TABLE `pump_infor` DISABLE KEYS */;
 /*!40000 ALTER TABLE `pump_infor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pump_status`
+--
+
+DROP TABLE IF EXISTS `pump_status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pump_status` (
+  `microbit_id` int(3) NOT NULL,
+  `auto_watering` tinyint(1) DEFAULT NULL,
+  `is_watering` tinyint(1) DEFAULT NULL,
+  `pump_on` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pump_status`
+--
+
+LOCK TABLES `pump_status` WRITE;
+/*!40000 ALTER TABLE `pump_status` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pump_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -140,4 +158,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-14 15:07:17
+-- Dump completed on 2022-04-14 17:32:28
