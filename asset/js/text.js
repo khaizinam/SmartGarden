@@ -63,7 +63,7 @@ const LOGIN_PAGE = `<div class="form-log">
 </div>
 <div style="margin-top:50px">
 <div class="list-mod">
-<ul class="list-mod-2">
+<ul id="list-mod-2">
 <li style="min-height: 40px;">
 <span id="status"></span>
 </li>
@@ -115,11 +115,7 @@ const LOGIN_PAGE = `<div class="form-log">
 <div style="margin-top:40px" class="list-mod">
 <h2>Tìm kiếm :</h2>
 <input id="q-micro" type="text"><button class="btn-mod-1">Tìm tất cả</button>
-<ul class="list-mod-2">
-<li>
-<span>Microbit 1: </span>
-<button data-="125" onclick="app.pagedetail(this)" class="btn-mod">SELECT</button>
-</li>
+<ul id="list-mod-2">
 </ul>
 </div>
 </div>

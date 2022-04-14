@@ -48,6 +48,13 @@ class App {
                         if (data != "fail") {
                             if (isJsonString(data)) {
                                 let res = JSON.parse(data);
+                                res.forEach(element => {
+                                    console.log(element.name + " " + element.id + "\n");
+                                    let inner = `<span>` + element.name + `  #` + element.id + `</span>
+                                    <button data-="` + element.id + `" onclick="app.pagedetail(this)" class="btn-mod">SELECT</button>`;
+                                    app.addElement(document.getElementById('list-mod-2'), "li", ["style", "min-height: 40px;"], inner);
+                                });
+
                                 //có data list
                             } else {
                                 //lỗi kết nối
@@ -66,6 +73,7 @@ class App {
     }
     ChangeMainPage() {
         this.showMainPage();
+        this.getListMicro();
         this.printname();
         this.runfunction = "main-page";
     }
