@@ -43,7 +43,6 @@ class App {
     /* ---------------------  UI SHOW PAGE ---------------------------  */
     showLoginpage() {
         document.getElementById("wrapper-all").innerHTML = LOGIN_PAGE;
-        this.messAlert("Bạn đã ra trang đăng nhập", document.getElementById("wrapper-all"));
     }
     ChangeMainPage() {
         this.showMainPage();
@@ -182,6 +181,7 @@ class App {
     logout() {
         setCookie("token", "none", "30");
         this.showLoginpage();
+        this.messAlert("Bạn đã ra trang đăng nhập");
     }
     messAlert(e) {
         let modal = document.getElementsByClassName("modal")[0];
