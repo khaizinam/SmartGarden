@@ -146,10 +146,10 @@ class App {
                                 setCookie("user-id", app.user.id, "30");
                                 console.log(app.user.TOKEN + "\n" + app.user.id + "\n" + app.user.name);
                                 app.ChangeMainPage();
-                                app.messAlert("Đăng nhập thành công" + data, document.getElementById("wrapper-all"));
+                                app.messAlert("Đăng nhập thành công" + data);
                             }
                         } else {
-                            app.messAlert("Không kết nối được tới server!", document.getElementById("wrapper-all"));
+                            app.messAlert("Không kết nối được tới server!");
                         }
                     }
                 });
@@ -198,7 +198,7 @@ class App {
         setCookie("token", "none", "30");
         this.showLoginpage();
     }
-    messAlert(e, parent) {
+    messAlert(e) {
         let modal = document.getElementsByClassName("modal")[0];
         if (modal) {
             this.closeMess();
@@ -206,7 +206,7 @@ class App {
         let c = document.createElement("div");
         c.setAttribute("class", "modal");
         c.innerHTML = MODAL;
-        parent.appendChild(c);
+        document.getElementById("wrapper-all").appendChild(c);
         document.getElementById("modal-content").innerHTML = e;
 
     }
