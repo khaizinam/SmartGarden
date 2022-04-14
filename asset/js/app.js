@@ -39,8 +39,28 @@ class App {
     Networkpagedetail() {
         console.log("page detail");
     }
-
-    /* ---------------------  UI SHOW PAGE ---------------------------  */
+    getListMicro() {
+            $.get(URL + "getlist.php", {
+                    id: app.user.id
+                },
+                function(data, status) {
+                    if (status === 'success') {
+                        if (data != "fail") {
+                            if (isJsonString(data)) {
+                                let res = JSON.parse(data);
+                                //có data list
+                            } else {
+                                //lỗi kết nối
+                            }
+                        } else {
+                            //ko có data
+                        }
+                    } else {
+                        this.runfunction = "";
+                    }
+                });
+        }
+        /* ---------------------  UI SHOW PAGE ---------------------------  */
     showLoginpage() {
         document.getElementById("wrapper-all").innerHTML = LOGIN_PAGE;
     }
@@ -117,8 +137,8 @@ class App {
                 },
                 function(data, status) {
                     if (status === 'success') {
-                        if (isJsonString(data)) {
-                            if (data != "fail") {
+                        if (data != "fail") {
+                            if (isJsonString(data)) {
                                 let res = JSON.parse(data);
                                 app.user = {
                                     TOKEN: res.token,
@@ -131,10 +151,14 @@ class App {
                                 console.log(app.user.TOKEN + "\n" + app.user.id + "\n" + app.user.name);
                                 app.ChangeMainPage();
                                 app.messAlert("Đăng nhập thành công" + data);
+                            } else {
+                                app.messAlert("Không kết nối được tới server!");
                             }
                         } else {
-                            app.messAlert("Không kết nối được tới server!");
+                            app.messAlert("Sai tên đăng nhập/ mật khẩu!");
                         }
+                    } else {
+                        app.messAlert("Không có mạng!");
                     }
                 });
         }
@@ -182,6 +206,7 @@ class App {
         setCookie("token", "none", "30");
         this.showLoginpage();
         this.messAlert("Bạn đã ra trang đăng nhập");
+        this.runfunction = "";
     }
     messAlert(e) {
         let modal = document.getElementsByClassName("modal")[0];
