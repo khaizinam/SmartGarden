@@ -8,6 +8,7 @@ function isJsonString(str) {
     }
     return true;
 }
+<<<<<<< HEAD
 
 function isJsonString(str) {
     try {
@@ -17,6 +18,8 @@ function isJsonString(str) {
     }
     return true;
 }
+=======
+>>>>>>> thanh
 
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();

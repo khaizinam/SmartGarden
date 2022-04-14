@@ -113,6 +113,7 @@ class App {
             pw.value != " ") {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             $.get(URL + "checklogin.php", {
                     username: usrname.value,
                     password: pw.value
@@ -137,6 +138,13 @@ class App {
                     password: pw.value
 
 >>>>>>> thanh
+=======
+
+            $.get(URL + "checklogin.php", {
+                    username: usrname.value,
+                    password: pw.value
+
+>>>>>>> thanh
                 },
                 function(data, status) {
                     if (status === 'success') {
@@ -149,14 +157,20 @@ class App {
                                     id: res.id
                                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 setCookie("token", app.user.TOKEN, "30");
                                 setCookie("user-name", app.user.name, "30");
                                 setCookie("user-id", app.user.id, "30");
 =======
+=======
+>>>>>>> thanh
 
                                 setCookie("token", app.user.TOKEN, 30);
                                 setCookie("user-name", app.user.name, 30);
                                 setCookie("user-id", app.user.id, 30);
+<<<<<<< HEAD
+>>>>>>> thanh
+=======
 >>>>>>> thanh
                                 console.log(app.user.TOKEN + "\n" + app.user.id + "\n" + app.user.name);
                                 app.ChangeMainPage();
@@ -165,6 +179,10 @@ class App {
                         } else {
                             app.messAlert("Không kết nối được tới server!");
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> thanh
 =======
 
 >>>>>>> thanh
