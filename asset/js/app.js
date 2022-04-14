@@ -74,6 +74,7 @@ class App {
         document.getElementById("wrapper-all").innerHTML = PAGE_DETAIL;
     }
     addNewPage() {
+
         document.getElementById("wrapper-all").innerHTML = CREATE_PAGE;
     }
     printname() {
@@ -111,9 +112,24 @@ class App {
             usrname.value != " " &&
             pw.value != "" &&
             pw.value != " ") {
+<<<<<<< HEAD
             $.get(URL + "checklogin.php", {
                     username: usrname.value,
                     password: pw.value
+=======
+            // app.user = {
+            //     TOKEN: "100000000",
+            //     name: usrname.value,
+            //     id: "1002"
+            // }
+            // setCookie("token", app.user.TOKEN, "30");
+            // console.log(app.user.TOKEN + "\n" + app.user.id);
+            // app.ChangeMainPage();
+            $.get("https://khaizinam.000webhostapp.com/server/login.php", {
+                    type: "login",
+                    "user-name": usrname.value,
+                    "pass": pw.value
+>>>>>>> thanh
                 },
                 function(data, status) {
                     if (status === 'success') {
