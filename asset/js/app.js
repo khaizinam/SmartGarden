@@ -43,7 +43,6 @@ class App {
     /* ---------------------  UI SHOW PAGE ---------------------------  */
     showLoginpage() {
         document.getElementById("wrapper-all").innerHTML = LOGIN_PAGE;
-        this.messAlert("Bạn đã ra trang đăng nhập", document.getElementById("wrapper-all"));
     }
     ChangeMainPage() {
         this.showMainPage();
@@ -74,6 +73,7 @@ class App {
         document.getElementById("wrapper-all").innerHTML = PAGE_DETAIL;
     }
     addNewPage() {
+
         document.getElementById("wrapper-all").innerHTML = CREATE_PAGE;
     }
     printname() {
@@ -125,9 +125,9 @@ class App {
                                     name: res.username,
                                     id: res.id
                                 }
-                                setCookie("token", app.user.TOKEN, "30");
-                                setCookie("user-name", app.user.name, "30");
-                                setCookie("user-id", app.user.id, "30");
+                                setCookie("token", app.user.TOKEN, 30);
+                                setCookie("user-name", app.user.name, 30);
+                                setCookie("user-id", app.user.id, 30);
                                 console.log(app.user.TOKEN + "\n" + app.user.id + "\n" + app.user.name);
                                 app.ChangeMainPage();
                                 app.messAlert("Đăng nhập thành công" + data);
@@ -181,6 +181,7 @@ class App {
     logout() {
         setCookie("token", "none", "30");
         this.showLoginpage();
+        this.messAlert("Bạn đã ra trang đăng nhập");
     }
     messAlert(e) {
         let modal = document.getElementsByClassName("modal")[0];
