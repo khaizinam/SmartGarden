@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 const URL = "http://localhost/SmartGarden/server.com/";
+=======
+<<<<<<< HEAD
+const URL = "http://localhost/SmartGarden/server.com/";
+=======
+const URL = "http://localhost/DA-gardenSmart/SmartGarden/server.com/";
+>>>>>>> 003abb58570f768f5417b9e59763a0fe5b0edca6
+>>>>>>> phat
 
 function isJsonString(str) {
     try {
@@ -20,6 +28,7 @@ function isJsonString(str) {
 }
 =======
 >>>>>>> thanh
+<<<<<<< HEAD
 
 function isJsonString(str) {
     try {
@@ -29,6 +38,8 @@ function isJsonString(str) {
     }
     return true;
 }
+=======
+>>>>>>> phat
 
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
@@ -59,10 +70,14 @@ let app = new App();
 function checkCookie() {
     let token = getCookie("token");
     if (!token) {
-        setCookie("token", "none", 30)
+        setCookie("token", "none", 30);
+        setCookie("user-name", "none", 30);
+        setCookie("user-id", "none", 30);
     }
     if (token != "none") {
         app.user.TOKEN = token;
+        app.user.name = getCookie("user-name");
+        app.user.id = getCookie("user-id");
         console.log(app.user.TOKEN);
         app.ChangeMainPage();
     } else {
