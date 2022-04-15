@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 const URL = "http://localhost/SmartGarden/server.com/";
-=======
-<<<<<<< HEAD
-const URL = "http://localhost/SmartGarden/server.com/";
-=======
-const URL = "http://localhost/DA-gardenSmart/SmartGarden/server.com/";
->>>>>>> 003abb58570f768f5417b9e59763a0fe5b0edca6
->>>>>>> phat
-=======
-const URL = "http://localhost/SmartGarden/server.com/";
->>>>>>> e8b54f6a13acee2ea03e5c881c7e3d75341d5e40
 
 function isJsonString(str) {
     try {
@@ -20,30 +8,6 @@ function isJsonString(str) {
     }
     return true;
 }
-<<<<<<< HEAD
-
-function isJsonString(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-        return false;
-    }
-    return true;
-}
-=======
->>>>>>> thanh
-<<<<<<< HEAD
-
-function isJsonString(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-        return false;
-    }
-    return true;
-}
-=======
->>>>>>> phat
 
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
