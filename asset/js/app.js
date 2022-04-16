@@ -139,16 +139,9 @@ class App {
                                     name: res.username,
                                     id: res.id
                                 }
-<<<<<<< HEAD
-                                setCookie("token", app.user.TOKEN, 30);
-                                setCookie("user-name", app.user.name, 30);
-                                setCookie("user-id", app.user.id, 30);
-                                console.log(app.user.TOKEN + "\n" + app.user.id + "\n" + app.user.name);
-=======
                                 setCookie("user-name", app.user.name, 30);
                                 setCookie("user-id", app.user.id, 30);
                                 console.log(app.user.id + "\n" + app.user.name);
->>>>>>> main
                                 app.ChangeMainPage();
                                 app.messAlert("Đăng nhập thành công" + data);
                             } else {
@@ -207,10 +200,7 @@ class App {
         setCookie("user-id", "none", 30);
         this.showLoginpage();
         this.messAlert("Bạn đã ra trang đăng nhập");
-<<<<<<< HEAD
-=======
         this.runfunction = "";
->>>>>>> main
     }
     messAlert(e) {
         let modal = document.getElementsByClassName("modal")[0];
