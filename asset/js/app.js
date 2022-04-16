@@ -14,18 +14,6 @@ class App {
             "WATER_POWER": {
                 "on": true,
                 "id": "btn-water-power"
-            },
-            "SOIL_MOISTURE": {
-                "on": true,
-                "id": "btn-soil-moisture"
-            },
-            "HUNIDITY": {
-                "on": true,
-                "id": "btn-hunidity"
-            },
-            "TEMPERATURE": {
-                "on": true,
-                "id": "btn-temperature"
             }
         };
         this.runfunction = "";
