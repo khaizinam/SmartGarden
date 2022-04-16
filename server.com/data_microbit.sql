@@ -23,24 +23,12 @@ DROP TABLE IF EXISTS `general_infor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `general_infor` (
-<<<<<<< HEAD
-  `infor_id` int(11) NOT NULL AUTO_INCREMENT,
-=======
   `infor_num` int(11) NOT NULL AUTO_INCREMENT,
->>>>>>> phat
   `microbit_id` int(3) NOT NULL,
-  `air_humidity` float NOT NULL,
-  `soil_moisture` float NOT NULL,
   `temperature` float NOT NULL,
-<<<<<<< HEAD
-  `auto_watering` tinyint(1) NOT NULL,
-  `is_watering` tinyint(1) NOT NULL,
-  `pump_on` tinyint(1) NOT NULL,
-  PRIMARY KEY (`infor_id`,`microbit_id`),
-=======
   `infor_time` datetime NOT NULL,
+  `huminity` float NOT NULL,
   PRIMARY KEY (`infor_num`,`microbit_id`),
->>>>>>> phat
   KEY `FK_MICROBITS` (`microbit_id`),
   CONSTRAINT `FK_MICROBITS` FOREIGN KEY (`microbit_id`) REFERENCES `microbits` (`microbit_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -65,18 +53,15 @@ DROP TABLE IF EXISTS `microbits`;
 CREATE TABLE `microbits` (
   `microbit_id` int(3) NOT NULL AUTO_INCREMENT,
   `microbit_name` varchar(50) NOT NULL,
-  `microbit_accessToken` varchar(255) NOT NULL,
+  `AIO_key` varchar(32) NOT NULL,
+  `ada_username` varchar(50) NOT NULL,
   `temperature_lower` float NOT NULL,
   `temperature_upper` float NOT NULL,
   `microbit_owner` int(3) NOT NULL,
   PRIMARY KEY (`microbit_id`),
   KEY `FK_OWNER` (`microbit_owner`),
   CONSTRAINT `FK_OWNER` FOREIGN KEY (`microbit_owner`) REFERENCES `users` (`user_id`)
-<<<<<<< HEAD
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-=======
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
->>>>>>> phat
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,71 +70,11 @@ CREATE TABLE `microbits` (
 
 LOCK TABLES `microbits` WRITE;
 /*!40000 ALTER TABLE `microbits` DISABLE KEYS */;
-INSERT INTO `microbits` VALUES (1,'micro_1_1','0987654321acbdbd',15,30,1),(2,'micro_1_2','1234abcbbcbc132423',12,32,1);
+INSERT INTO `microbits` VALUES (1,'micro_1_1','0987654321acbdbd','',15,30,1),(2,'micro_1_2','1234abcbbcbc132423','',12,32,1);
 /*!40000 ALTER TABLE `microbits` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `pump_infor`
---
-
-DROP TABLE IF EXISTS `pump_infor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pump_infor` (
-<<<<<<< HEAD
-  `pump_id` int(11) NOT NULL AUTO_INCREMENT,
-  `microbit_id` int(3) NOT NULL,
-  `timeOn` datetime NOT NULL,
-  `timeOff` datetime NOT NULL,
-  PRIMARY KEY (`pump_id`,`microbit_id`),
-  KEY `FK_MIROBITPUMP` (`microbit_id`),
-  CONSTRAINT `FK_MIROBITPUMP` FOREIGN KEY (`microbit_id`) REFERENCES `microbits` (`microbit_id`)
-=======
-  `microbit_id` int(3) NOT NULL,
-  `timeOn` datetime NOT NULL,
-  `timeOff` datetime NOT NULL
->>>>>>> phat
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pump_infor`
---
-
-LOCK TABLES `pump_infor` WRITE;
-/*!40000 ALTER TABLE `pump_infor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pump_infor` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
-<<<<<<< HEAD
-=======
--- Table structure for table `pump_status`
---
-
-DROP TABLE IF EXISTS `pump_status`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pump_status` (
-  `microbit_id` int(3) NOT NULL,
-  `auto_watering` tinyint(1) DEFAULT NULL,
-  `is_watering` tinyint(1) DEFAULT NULL,
-  `pump_on` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pump_status`
---
-
-LOCK TABLES `pump_status` WRITE;
-/*!40000 ALTER TABLE `pump_status` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pump_status` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
->>>>>>> phat
 -- Table structure for table `users`
 --
 
@@ -161,7 +86,6 @@ CREATE TABLE `users` (
   `user_name` varchar(50) NOT NULL,
   `user_password` varchar(30) NOT NULL,
   `user_email` varchar(50) NOT NULL,
-  `user_token` varchar(255) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_name` (`user_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
@@ -173,7 +97,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin1','1234','admin1@gmail.com','0123456789abcdef');
+INSERT INTO `users` VALUES (1,'admin1','1234','admin1@gmail.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -186,8 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD
--- Dump completed on 2022-04-14 15:07:17
-=======
--- Dump completed on 2022-04-14 17:32:28
->>>>>>> phat
+-- Dump completed on 2022-04-16 20:29:51

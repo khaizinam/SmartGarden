@@ -26,7 +26,7 @@ V=> DONE
 
 
 *getlist.php //list micro của ng dùng
-    -> nhận GET['token']
+    -> nhận GET['id']
     -> trả về 
     $data = array();
     while($rows = $sql->fetch_array()){

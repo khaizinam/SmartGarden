@@ -1,7 +1,6 @@
 class App {
     constructor() {
         this.user = {
-            TOKEN: "none",
             name: "User name",
             id: "2075"
         }
@@ -14,18 +13,6 @@ class App {
             "WATER_POWER": {
                 "on": true,
                 "id": "btn-water-power"
-            },
-            "SOIL_MOISTURE": {
-                "on": true,
-                "id": "btn-soil-moisture"
-            },
-            "HUNIDITY": {
-                "on": true,
-                "id": "btn-hunidity"
-            },
-            "TEMPERATURE": {
-                "on": true,
-                "id": "btn-temperature"
             }
         };
         this.runfunction = "";
@@ -39,13 +26,41 @@ class App {
     Networkpagedetail() {
         console.log("page detail");
     }
+    getListMicro() {
+            $.get(URL + "getlist.php", {
+                    id: app.user.id
+                },
+                function(data, status) {
+                    if (status === 'success') {
+                        if (data != "fail") {
+                            if (isJsonString(data)) {
+                                let res = JSON.parse(data);
+                                res.forEach(element => {
+                                    console.log(element.name + " " + element.id + "\n");
+                                    let inner = `<span>` + element.name + `  #` + element.id + `</span>
+                                    <button data-="` + element.id + `" onclick="app.pagedetail(this)" class="btn-mod">SELECT</button>`;
+                                    app.addElement(document.getElementById('list-mod-2'), "li", ["style", "min-height: 40px;"], inner);
+                                });
 
-    /* ---------------------  UI SHOW PAGE ---------------------------  */
+                                //có data list
+                            } else {
+                                //lỗi kết nối
+                            }
+                        } else {
+                            //ko có data
+                        }
+                    } else {
+                        this.runfunction = "";
+                    }
+                });
+        }
+        /* ---------------------  UI SHOW PAGE ---------------------------  */
     showLoginpage() {
         document.getElementById("wrapper-all").innerHTML = LOGIN_PAGE;
     }
     ChangeMainPage() {
         this.showMainPage();
+        this.getListMicro();
         this.printname();
         this.runfunction = "main-page";
     }
@@ -117,24 +132,33 @@ class App {
                 },
                 function(data, status) {
                     if (status === 'success') {
-                        if (isJsonString(data)) {
-                            if (data != "fail") {
+                        if (data != "fail") {
+                            if (isJsonString(data)) {
                                 let res = JSON.parse(data);
                                 app.user = {
-                                    TOKEN: res.token,
                                     name: res.username,
                                     id: res.id
                                 }
+<<<<<<< HEAD
                                 setCookie("token", app.user.TOKEN, 30);
                                 setCookie("user-name", app.user.name, 30);
                                 setCookie("user-id", app.user.id, 30);
                                 console.log(app.user.TOKEN + "\n" + app.user.id + "\n" + app.user.name);
+=======
+                                setCookie("user-name", app.user.name, 30);
+                                setCookie("user-id", app.user.id, 30);
+                                console.log(app.user.id + "\n" + app.user.name);
+>>>>>>> main
                                 app.ChangeMainPage();
                                 app.messAlert("Đăng nhập thành công" + data);
+                            } else {
+                                app.messAlert("Không kết nối được tới server!");
                             }
                         } else {
-                            app.messAlert("Không kết nối được tới server!");
+                            app.messAlert("Sai tên đăng nhập/ mật khẩu!");
                         }
+                    } else {
+                        app.messAlert("Không có mạng!");
                     }
                 });
         }
@@ -179,9 +203,14 @@ class App {
         parent.appendChild(c);
     }
     logout() {
-        setCookie("token", "none", "30");
+        setCookie("user-name", "none", 30);
+        setCookie("user-id", "none", 30);
         this.showLoginpage();
         this.messAlert("Bạn đã ra trang đăng nhập");
+<<<<<<< HEAD
+=======
+        this.runfunction = "";
+>>>>>>> main
     }
     messAlert(e) {
         let modal = document.getElementsByClassName("modal")[0];

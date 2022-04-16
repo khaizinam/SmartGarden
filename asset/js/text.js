@@ -42,11 +42,6 @@ const LOGIN_PAGE = `<div class="form-log">
 <br>
 <span id="temperature">16.6 ℃</span>
 </div>
-<div class="box-1">
-<span>Độ ẩm đất</span>
-<br>
-<span id="soil-moisture">137.5 %</span>
-</div>
 </div>
 <div id="conponent-1-right">
 <div class="box-1">
@@ -54,16 +49,11 @@ const LOGIN_PAGE = `<div class="form-log">
 <br>
 <span id="hunidity">90.7 %</span>
 </div>
-<div class="box-1">
-<span>Pin</span>
-<br>
-<span id="battery-voltage">90.7 %</span>
-</div>
 </div>
 </div>
 <div style="margin-top:50px">
 <div class="list-mod">
-<ul class="list-mod-2">
+<ul id="list-mod-2">
 <li style="min-height: 40px;">
 <span id="status"></span>
 </li>
@@ -74,18 +64,6 @@ const LOGIN_PAGE = `<div class="form-log">
 <li>
 <span>Tưới nước </span>
 <button data-="WATER_POWER" onclick="app.clickMod(this)" id="btn-water-power" class="btn-mod">TẮT</button>
-</li>
-<li>
-<span>Máy đo độ ẩm đất </span>
-<button data-="SOIL_MOISTURE" onclick="app.clickMod(this)" id="btn-soil-moisture" class="btn-mod">TẮT</button>
-</li>
-<li>
-<span>Máy đo độ ẩm không khí </span>
-<button data-="HUNIDITY" onclick="app.clickMod(this)" id="btn-hunidity" class="btn-mod">TẮT</button>
-</li>
-<li>
-<span>Máy đo nhiệt độ </span>
-<button data-="TEMPERATURE" onclick="app.clickMod(this)" id="btn-temperature" class="btn-mod">TẮT</button>
 </li>
 </ul>
 </div>
@@ -115,11 +93,7 @@ const LOGIN_PAGE = `<div class="form-log">
 <div style="margin-top:40px" class="list-mod">
 <h2>Tìm kiếm :</h2>
 <input id="q-micro" type="text"><button class="btn-mod-1">Tìm tất cả</button>
-<ul class="list-mod-2">
-<li>
-<span>Microbit 1: </span>
-<button data-="125" onclick="app.pagedetail(this)" class="btn-mod">SELECT</button>
-</li>
+<ul id="list-mod-2">
 </ul>
 </div>
 </div>
