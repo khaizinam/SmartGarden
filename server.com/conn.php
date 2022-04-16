@@ -90,6 +90,16 @@ class DataBase
         $res = json_decode($this->GETdata($user_name , $this->Huminity),true); 
         return $res['last_value'];
     }
+    public function getpower($user_name) 
+    {
+        $res = json_decode($this->GETdata($user_name , $this->pumpPower),true); 
+        return $res['last_value'];
+    }
+    public function getAuto($user_name) 
+    {
+        $res = json_decode($this->GETdata($user_name , $this->pumpAuto),true); 
+        return $res['last_value'];
+    }
     public function getTemp($user_name) 
     {
         $res = json_decode($this->GETdata($user_name , $this->temp),true); 
