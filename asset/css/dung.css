@@ -328,7 +328,9 @@ div.dung__form label {
     .dung__button input {
         height: unset;
         width: 55px;
-        font-size: unset;
+        height: 18px;
+        font-size: 13px;
+        text-align: center;
     }
     
     .dung__card_card_img {
