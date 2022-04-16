@@ -1,4 +1,4 @@
-const URL = "http://localhost/DA-gardenSmart/SmartGarden/server.com/";
+const URL = "http://localhost/Smartgarden/SmartGarden/server.com/";
 
 function isJsonString(str) {
     try {
@@ -36,17 +36,14 @@ function getCookie(cname) {
 let app = new App();
 
 function checkCookie() {
-    let token = getCookie("token");
+    let token = getCookie("user-name");
     if (!token) {
-        setCookie("token", "none", 30);
         setCookie("user-name", "none", 30);
         setCookie("user-id", "none", 30);
     }
     if (token != "none") {
-        app.user.TOKEN = token;
         app.user.name = getCookie("user-name");
         app.user.id = getCookie("user-id");
-        console.log(app.user.TOKEN);
         app.ChangeMainPage();
     } else {
         app.showLoginpage();

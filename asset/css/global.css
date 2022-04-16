@@ -139,11 +139,11 @@
     background-color: skyblue;
 }
 
-.list-mod-2 li span {
+#list-mod-2 li span {
     margin: auto 0px auto 20px;
 }
 
-.list-mod-2 li {
+#list-mod-2 li {
     padding: 5px 20px;
     display: flex;
     justify-content: space-between;
