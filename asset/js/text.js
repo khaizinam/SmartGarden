@@ -119,91 +119,34 @@ const LOGIN_PAGE = `<div class="form-log">
 <button onclick="app.closeMess()" class="btn-close">Đóng</button>
 </div>
 </div>`,
-    CREATE_PAGE = `<h1 style="text-align:center">Đăng ký Microbit</h1>
+    CREATE_PAGE = ` <h1 style="text-align:center">Đăng ký Microbit</h1>
 
-<div style="display: flex;justify-content: space-between;">
-    <button onclick="app.ChangeMainPage()" id="btn-mod" class="btn-mod">Trở về</button>
-</div>
+    <div style="display: flex;justify-content: space-between;">
+        <button onclick="app.ChangeMainPage()" id="btn-mod" class="btn-mod">Trở về</button>
+    </div>
 
 
-<div class="dung__form_signup-microbit">
-    <form action="" method="get" class="dung__form">
-        <div class="dung__form_component">
-            <div class="dung_lable_button">
-                <label for="button_access-token">Access token: </label>
-                <input type="text" id="button_access-token" name="button_access-token" required>
-            </div>
-            <div class="dung_lable_button">
-                <label for="button_name">Tên Microbit: </label>
-                <input type="text" id="button_name" name="button_name" required>
-            </div>
-        </div>
-
-        <div class="dung__form_component">
-            <p>Cài đặt độ ẩm:</p>
-            <div class="dung_block2 dung_signup">
-                <div class="dung__button dung_signup">
-                    <label for="humidity_upper">Ngưỡng trên </label>
-                    <button>-</button>
-                    <input type="number" id="humidity_upper" name="humidity_upper" required>
-                    <button>+</button>
+    <div class="dung__form_signup-microbit">
+        <form action="" method="POST" class="dung__form">
+            <div class="dung__form_component">
+                <div class="dung_lable_btn">
+                    <label for="btn_micro-name">Tên Microbit: </label>
+                    <input type="text" id="btn_micro-name" name="btn_micro-name" required>
                 </div>
-                <div class="dung__button dung_signup">
-                    <label for="humidity_lower">Ngưỡng dưới </label>
-                    <button>-</button>
-                    <input type="number" id="humidity_lower" name="humidity_lower" required>
-                    <button>+</button>
+                <div class="dung_lable_btn">
+                    <label for="btn_user-name">Adafruit user name: </label>
+                    <input type="text" id="btn_user-name" name="btn_user-name" required>
+                </div>
+                <div class="dung_lable_btn">
+                    <label for="btn_AIO-key">AIO key: </label>
+                    <input type="text" id="btn_AIO-key" name="btn_AIO-key" required>
                 </div>
             </div>
-        </div>
-
-
-
-        <div class="dung__form_component">
-            <p>Cài đặt độ ẩm đất:</p>
-            <div class="dung_block2 dung_signup">
-                <div class="dung__button dung_signup">
-                    <label for="soil_upper">Ngưỡng trên </label>
-                    <button>-</button>
-                    <input type="number" id="soil_upper" name="soil_upper" required>
-                    <button>+</button>
-                </div>
-                <div class="dung__button dung_signup">
-                    <label for="soil_lower">Ngưỡng dưới </label>
-                    <button>-</button>
-                    <input type="number" id="soil_lower" name="soil_lower" required>
-                    <button>+</button>
-                </div>
+            <div class="dung__form_component">
+                <input type="submit" value="Xác nhận">
             </div>
-        </div>
-
-        <div class="dung__form_component">
-            <p>Danh sách thiết bị:</p>
-            <div class="dung__form_list">
-                <div class="dung__form_list_ul">
-                    <div class="dung__form">
-                        <label for="machine1">Máy đo độ ẩm đất</label>
-                        <input type="checkbox" id="machine1" name="machine1" value="A">
-                    </div>
-
-                    <div class="dung__form">
-                        <label for="machine2">Máy đo độ ẩm không khí</label>
-                        <input type="checkbox" id="machine2" name="machine2" value="B"><br />
-                    </div>
-
-                    <div class="dung__form">
-                        <label for="machine3">Máy đo nhiệt độ</label>
-                        <input type="checkbox" id="machine3" name="machine3" value="C"><br />
-                    </div>
-                </div>
-</div>
-</div>
-
-<div class="dung__form_component">
-<input type="submit" value="Xác nhận">
-</div>
-</form>
-</div>`,
+        </form>
+    </div>`,
     SETTING_PAGE = `<h2 style="text-align:center">Microbitname #1007</h2>
 
 <div style="display: flex;justify-content: space-between;">

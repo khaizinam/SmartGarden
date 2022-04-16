@@ -36,12 +36,11 @@ function getCookie(cname) {
 let app = new App();
 
 function checkCookie() {
-    let token = getCookie("user-name");
-    if (!token) {
+    if (!getCookie("user-name")) {
         setCookie("user-name", "none", 30);
         setCookie("user-id", "none", 30);
     }
-    if (token != "none") {
+    if (getCookie("user-name") != "none") {
         app.user.name = getCookie("user-name");
         app.user.id = getCookie("user-id");
         app.ChangeMainPage();

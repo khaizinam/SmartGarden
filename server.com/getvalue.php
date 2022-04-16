@@ -30,6 +30,34 @@ $json=($data);
 $aioKey= $json['aioKey'];
 $adaUserName= $json['adaUserName'];
 
+$temp=$db->getTemp($adaUserName);
+$humi=$db->getHumi($adaUserName);
+$power=$db->getpower($adaUserName);
+$auto=$db->getAuto($adaUserName);
+
+$returnData=array('temp'=>$temp,
+                  'humi'=>$humi,
+                  'power'=>$power,
+                  'auto'=>$auto,
+);
+
+echo 'temp: '.$returnData['temp'];
+echo '<br>';
+echo 'humi: '.$returnData['humi'];
+echo '<br>';
+echo 'power: '.$returnData['power'];
+echo '<br>';
+echo 'auto: '.$returnData['auto'];
+echo '<br>';
+
+// echo 'tempp:'.$temp;
+// echo '<br>';
+// echo 'humi'.$humi;
+// echo 'tempp:'.$temp;
+// echo '<br>';
+// echo 'humi'.$humi;
+
+
 // echo $aioKey ;
 // echo '<br>';
 // echo $adaUserName;

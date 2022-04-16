@@ -176,6 +176,8 @@ class App {
         }
     }
     UpdateMod() {
+        document.getElementById("temperature").innerHTML = "30 %";
+        document.getElementById("hunidity").innerHTML = "30 %";;
         for (let key in this.mod) {
             let e = document.getElementById(this.mod[key].id);
             if (this.mod[key].on == false) {
