@@ -3,17 +3,19 @@
 include 'conn.php';
 $db=new DataBase();
 
-// $microbit_name=$_GET['name'];
-// $microbit_accessToken='afdjklajfaklsfa';
-// $temperature_lower=$_GET['templow'];
-// $temperature_upper=$_GET['tempup'];
-// $owner_id=$_GET['id'];
+// $microbit_name=$_POST['name'];
+// $aio_key=$_POST['aio_key'];
+// $ada_username=$_POST['ada_username'];
+// $temperature_upper=$_POST['temperature_upper'];
+// $temperature_lower=$_POST['temperature_lower'];
+// $owner_id=$_POST['id'];
 
 // test===============
-$microbit_name='micro_1_2';
-$microbit_accessToken='afdjklajfaklsfa';
-$temperature_lower=mt_rand();
-$temperature_upper=mt_rand();
+$microbit_name='micro_1_1';
+$aio_key='afdjklajfaklsfa';
+$ada_username='tuikhongbiet';
+$temperature_upper=rand();
+$temperature_lower=rand();
 $owner_id=1;
 
 
@@ -29,7 +31,7 @@ if($numresult>=1){  // đã tồn tại microbit
 }
 else{ // microbit chua ton tai
     $query="INSERT INTO microbits 
-    VALUES(null,'$microbit_name','$microbit_accessToken','$temperature_lower','$temperature_upper','$owner_id')    
+    VALUES(null,'$microbit_name','$aio_key','$ada_username','$temperature_lower','$temperature_upper','$owner_id')    
     ";
     $db->send($query);
 
