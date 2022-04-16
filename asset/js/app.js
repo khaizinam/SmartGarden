@@ -1,7 +1,6 @@
 class App {
     constructor() {
         this.user = {
-            TOKEN: "none",
             name: "User name",
             id: "2075"
         }
@@ -137,14 +136,12 @@ class App {
                             if (isJsonString(data)) {
                                 let res = JSON.parse(data);
                                 app.user = {
-                                    TOKEN: res.token,
                                     name: res.username,
                                     id: res.id
                                 }
-                                setCookie("token", app.user.TOKEN, 30);
                                 setCookie("user-name", app.user.name, 30);
                                 setCookie("user-id", app.user.id, 30);
-                                console.log(app.user.TOKEN + "\n" + app.user.id + "\n" + app.user.name);
+                                console.log(app.user.id + "\n" + app.user.name);
                                 app.ChangeMainPage();
                                 app.messAlert("Đăng nhập thành công" + data);
                             } else {
@@ -199,7 +196,8 @@ class App {
         parent.appendChild(c);
     }
     logout() {
-        setCookie("token", "none", "30");
+        setCookie("user-name", "none", 30);
+        setCookie("user-id", "none", 30);
         this.showLoginpage();
         this.messAlert("Bạn đã ra trang đăng nhập");
         this.runfunction = "";
