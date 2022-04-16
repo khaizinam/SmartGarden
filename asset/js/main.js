@@ -38,23 +38,12 @@ let app = new App();
 function checkCookie() {
     let token = getCookie("user-name");
     if (!token) {
-<<<<<<< HEAD
-        setCookie("token", "none", 30);
-=======
->>>>>>> main
         setCookie("user-name", "none", 30);
         setCookie("user-id", "none", 30);
     }
     if (token != "none") {
-<<<<<<< HEAD
-        app.user.TOKEN = token;
         app.user.name = getCookie("user-name");
         app.user.id = getCookie("user-id");
-        console.log(app.user.TOKEN);
-=======
-        app.user.name = getCookie("user-name");
-        app.user.id = getCookie("user-id");
->>>>>>> main
         app.ChangeMainPage();
     } else {
         app.showLoginpage();
