@@ -90,8 +90,3 @@ V=> DONE
 ---------------------------------------------------
 
 
-*switch.php
-    -> nhận GET['pump_id'] + GET['MicroBit_id'] + GET['auto_water'] +  GET['water_power']
-    -> trả về 
-    UPDATE vào table.
-    echo "success";

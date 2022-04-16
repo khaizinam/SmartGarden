@@ -7,7 +7,7 @@ $password=$_GET['password'];
 
 
 
-$query="SELECT user_id AS id,user_name as 'name'
+$query = "SELECT user_id AS id ,user_name as 'name'
         FROM users
         WHERE user_name='$username'
         AND user_password = '$password'
