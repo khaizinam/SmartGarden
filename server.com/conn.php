@@ -82,5 +82,23 @@ class DataBase
         $url = "https://io.adafruit.com/api/v2/$username/feeds";
         return file_get_contents($url);
     }
+    public function getHumi($user_name) 
+    {
+        $res = json_decode($this->GETdata($user_name ,"pj-humi")); 
+        return $res['last_value'];
+    }
+    public function getTemp($user_name) 
+    {
+        $res = json_decode($this->GETdata($user_name ,"pj-temp")); 
+        return $res['last_value'];
+    }
+    public function Power($user_name, $AIO_key,$mode) 
+    {
+        $this->update($user_name,"pj-pump-power-source", $AIO_key,$mode);
+    }
+    public function Auto($user_name, $AIO_key,$mode) 
+    {
+        $this->update($user_name,"pj-pump-auto", $AIO_key,$mode);
+    }
 }  
 ?>
