@@ -85,21 +85,21 @@ class DataBase
         $url = "https://io.adafruit.com/api/v2/$username/feeds";
         return file_get_contents($url);
     }
-    public function getHumi($user_name) 
+    public function getHumi($user_name) // lay do am dat( ada_username )
     {
         $res = json_decode($this->GETdata($user_name , $this->Huminity),true); 
         return $res['last_value'];
     }
-    public function getTemp($user_name) 
+    public function getTemp($user_name) // lay do nhiet do( ada_username )
     {
         $res = json_decode($this->GETdata($user_name , $this->temp),true); 
         return $res['last_value'];
     }
-    public function Power($user_name, $AIO_key, $mode) 
+    public function Power($user_name, $AIO_key, $mode) // bat tat may bom
     {
         $this->update($user_name, $this->pumpPower, $AIO_key,$mode);
     }
-    public function Auto($user_name, $AIO_key, $mode) 
+    public function Auto($user_name, $AIO_key, $mode) // che do auto
     {
         $this->update($user_name , $this->pumpAuto , $AIO_key,$mode);
     }
