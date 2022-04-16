@@ -17,8 +17,11 @@ class DataBase
     public $name = USERTNAME;
     public $pass = PASS;
     public $database = DATABASEBNAME;
-
-
+    public $pumpPower = "pj-pump-power-source";
+    public $pumpAuto = "pj-pump-auto";
+    public $Huminity = "pj-humi";
+    public $temp = "pj-temp";
+    
     public $link;
     public $error;
     public  function __construct()
@@ -84,21 +87,21 @@ class DataBase
     }
     public function getHumi($user_name) 
     {
-        $res = json_decode($this->GETdata($user_name ,"pj-humi")); 
+        $res = json_decode($this->GETdata($user_name , $this->Huminity),true); 
         return $res['last_value'];
     }
     public function getTemp($user_name) 
     {
-        $res = json_decode($this->GETdata($user_name ,"pj-temp")); 
+        $res = json_decode($this->GETdata($user_name , $this->temp),true); 
         return $res['last_value'];
     }
-    public function Power($user_name, $AIO_key,$mode) 
+    public function Power($user_name, $AIO_key, $mode) 
     {
-        $this->update($user_name,"pj-pump-power-source", $AIO_key,$mode);
+        $this->update($user_name, $this->pumpPower, $AIO_key,$mode);
     }
-    public function Auto($user_name, $AIO_key,$mode) 
+    public function Auto($user_name, $AIO_key, $mode) 
     {
-        $this->update($user_name,"pj-pump-auto", $AIO_key,$mode);
+        $this->update($user_name , $this->pumpAuto , $AIO_key,$mode);
     }
 }  
 ?>
