@@ -90,11 +90,9 @@
     /* margin-top: 10px; */
 }
 
-.dung__card_card:first-child .dung__card_card_img {
-    /* background-image: linear-gradient(to bottom, rgba(161, 38, 0, 0.75), rgba(177, 102, 16, 0.75), rgba(216, 153, 35, 0.75)); */
-    /* background: linear-gradient(to bottom, rgba(2, 170, 2, 0.85), rgba(40, 216, 5, 0.85), rgba(76, 250, 41, 0.8)); */
+/* .dung__card_card:first-child .dung__card_card_img {
     border-radius: 50%;
-}
+} */
 
 .dung__card_card_img img {
     object-fit: cover;
@@ -270,11 +268,6 @@ div.dung__form label {
     color: white;
 }
 
-.dung__form_component:last-child:hover input{
-    background: white;
-    color: #5BD849;
-}
-
 
 @media only screen and (max-width: 960px) {
     .container {
@@ -362,8 +355,8 @@ div.dung__form label {
     }
     
     .dung__button_confirm button{
-        width: 90px;
-        height: 30px;
+        width: 85px;
+        height: 32px;
         font-size: unset;
     }
     
