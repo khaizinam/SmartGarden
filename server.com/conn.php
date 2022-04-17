@@ -47,8 +47,8 @@ class DataBase
         $result = $this->link->query($query);
         return mysqli_num_rows($result);
     }
-    public function update($user_name,$feed_key, $AIO_key,$value){
-        $url = "https://io.adafruit.com/api/v2/$user_name/feeds/$feed_key/data?X-AIO-key=$AIO_key";
+    public function update($user_name,$feed_key, $AIO_key,$AIO_key_2,$value){
+        $url = "https://io.adafruit.com/api/v2/$user_name/feeds/$feed_key/data?X-AIO-key=aio_$AIO_key$AIO_key_2";
     
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -105,13 +105,13 @@ class DataBase
         $res = json_decode($this->GETdata($user_name , $this->temp),true); 
         return $res['last_value'];
     }
-    public function Power($user_name, $AIO_key, $mode) // bat tat may bom
+    public function Power($user_name, $AIO_key,$AIO_key_2, $mode) // bat tat may bom
     {
-        $this->update($user_name, $this->pumpPower, $AIO_key,$mode);
+        $this->update($user_name, $this->pumpPower, $AIO_key,$AIO_key_2,$mode);
     }
-    public function Auto($user_name, $AIO_key, $mode) // che do auto
+    public function Auto($user_name, $AIO_key,$AIO_key_2, $mode) // che do auto
     {
-        $this->update($user_name , $this->pumpAuto , $AIO_key,$mode);
+        $this->update($user_name , $this->pumpAuto , $AIO_key,$AIO_key_2,$mode);
     }
 }  
 ?>

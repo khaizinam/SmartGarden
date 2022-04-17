@@ -35,41 +35,45 @@ const LOGIN_PAGE = `<div class="form-log">
 <button onclick="app.dashboard()"  class="btn-mod">Lịch sử</button><button onclick="app.setting()"  class="btn-mod">Cài đặt</button>
 </div>
 </div>
+    <div id="micro-detail">
+    </div>
+</div>`,
+    Micro_detail = `
 <div id="conponent-1">
-<div id="conponent-1-left">
-<div class="box-1">
-<span>Nhiệt độ</span>
-<br>
-<span id="temperature"></span>
-</div>
-</div>
-<div id="conponent-1-right">
-<div class="box-1">
-<span>Độ ẩm không khí</span>
-<br>
-<span id="hunidity"></span>
-</div>
-</div>
+    <div id="conponent-1-left">
+        <div class="box-1">
+            <span>Nhiệt độ</span>
+            <br>
+            <span id="temperature"></span>
+        </div>
+    </div>
+    <div id="conponent-1-right">
+        <div class="box-1">
+        <span>Độ ẩm không khí</span>
+        <br>
+        <span id="hunidity"></span>
+        </div>
+    </div>
 </div>
 <div style="margin-top:50px">
-<div class="list-mod">
-<ul id="list-mod-2">
-<li style="min-height: 40px;">
-<span id="status"></span>
-</li>
-<li>
-<span>Tự động tưới </span>
-<button data-="auto" onclick="app.clickMod(this)" id="btn-auto-water" class="btn-mod">TẮT</button>
-</li>
-<li>
-<span>Tưới nước </span>
-<button data-="power" onclick="app.clickMod(this)" id="btn-water-power" class="btn-mod">TẮT</button>
-</li>
-</ul>
+    <div class="list-mod">
+        <ul id="list-mod-2">
+            <li style="min-height: 40px;">
+                <span id="status"></span>
+            </li>
+            <li>
+                <span>Tự động tưới </span>
+                <button data-="auto" onclick="app.clickMod(this)" id="btn-auto-water" class="btn-mod">TẮT</button>
+            </li>
+            <li>
+                <span>Tưới nước </span>
+                <button data-="power" onclick="app.clickMod(this)" id="btn-water-power" class="btn-mod">TẮT</button>
+            </li>
+        </ul>
+    </div>
 </div>
-</div>
-</div>`,
-    MAIN_PAGE = `<div id="body">
+`;
+MAIN_PAGE = `<div id="body">
 <div class="component-head container">
 <div style="height: 160px;"></div>
 <img style="position:absolute;top:-50px;width: 100%;" src="./asset/img/bg-1.jpg" alt="bg">

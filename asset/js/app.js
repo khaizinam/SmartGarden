@@ -101,9 +101,10 @@ class App {
     }
 
     pagedetail(name, id) {
-        app.messAlert("Đang tải trang chi tiết, vui lòng đợi giây lát");
         localStorage.setItem("micro-name", name);
         localStorage.setItem("micro-id", id);
+        document.getElementById("wrapper-all").innerHTML = PAGE_DETAIL;
+        app.messAlert("Đang tải trang chi tiết, vui lòng đợi giây lát");
         $.get(URL + "getvalue.php", {
                 id: localStorage.getItem("micro-id")
             },
@@ -120,7 +121,8 @@ class App {
                             app.mod.power.on = true;
                         } else if (res.power == 0) app.mod.power.on = false;
                         //
-                        document.getElementById("wrapper-all").innerHTML = PAGE_DETAIL;
+                        document.getElementById("micro-detail").innerHTML = Micro_detail;
+                        if (document.getElementsByClassName("modal")[0]) app.closeMess();
                         //
                         document.getElementById("temperature").innerHTML = res.temp + "℃";
                         document.getElementById("hunidity").innerHTML = res.humi + "%";

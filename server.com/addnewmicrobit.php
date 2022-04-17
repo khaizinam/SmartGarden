@@ -11,12 +11,7 @@ $db=new DataBase();
 // $owner_id=$_POST['id'];
 
 // test===============
-$microbit_name='micro_1_2';
-$aio_key='aio_GZxz67WtgP9E6GBPbV2eUYqes5ge';
-$ada_username='DuyThinh141592';
-$temperature_upper=rand();
-$temperature_lower=rand();
-$owner_id=1;
+
 
 
 
