@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2022 at 05:46 PM
+-- Generation Time: Apr 17, 2022 at 08:48 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -33,8 +33,8 @@ CREATE TABLE `microbits` (
   `AIO_key` varchar(12) NOT NULL,
   `AIO_key_2` varchar(16) NOT NULL,
   `ada_username` varchar(50) NOT NULL,
-  `temperature_lower` float NOT NULL,
-  `temperature_upper` float NOT NULL,
+  `humi_lower` float NOT NULL,
+  `humi_upper` float NOT NULL,
   `microbit_owner` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -42,8 +42,9 @@ CREATE TABLE `microbits` (
 -- Dumping data for table `microbits`
 --
 
-INSERT INTO `microbits` (`microbit_id`, `microbit_name`, `AIO_key`, `AIO_key_2`, `ada_username`, `temperature_lower`, `temperature_upper`, `microbit_owner`) VALUES
-(1, 'Máy thử 1', 'BIAI74HrNYGA', 'CXXPRvrWxUallSXx', 'DuyThinh141592', 32, 32, 1);
+INSERT INTO `microbits` (`microbit_id`, `microbit_name`, `AIO_key`, `AIO_key_2`, `ada_username`, `humi_lower`, `humi_upper`, `microbit_owner`) VALUES
+(1, 'Máy thử 1', 'BIAI74HrNYGA', 'CXXPRvrWxUallSXx', 'DuyThinh141592', 32, 32, 1),
+(7, 'khaiiznam', 'IAI74HrNYGAC', 'CXXPRvrWxUallSXx', 'DuyThinh141592', 25, 35, 1);
 
 --
 -- Indexes for dumped tables
@@ -63,7 +64,7 @@ ALTER TABLE `microbits`
 -- AUTO_INCREMENT for table `microbits`
 --
 ALTER TABLE `microbits`
-  MODIFY `microbit_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `microbit_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
