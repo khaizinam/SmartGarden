@@ -36,6 +36,9 @@ const LOGIN_PAGE = `<div class="form-log">
 </div>
 </div>
     <div id="micro-detail">
+    <div style="text-align: center;">
+        <img src="./asset/img/giphy1.gif" alt="loading" width="50%">
+    </div>
     </div>
 </div>`,
     Micro_detail = `
@@ -58,9 +61,6 @@ const LOGIN_PAGE = `<div class="form-log">
 <div style="margin-top:50px">
     <div class="list-mod">
         <ul id="list-mod-2">
-            <li style="min-height: 40px;">
-                <span id="status"></span>
-            </li>
             <li>
                 <span>Tự động tưới </span>
                 <button data-="auto" onclick="app.clickMod(this)" id="btn-auto-water" class="btn-mod">TẮT</button>
@@ -95,8 +95,6 @@ MAIN_PAGE = `<div id="body">
 </div>
 </div>
 <div style="margin-top:40px" class="list-mod">
-<h2>Tìm kiếm :</h2>
-<input id="q-micro" type="text"><button class="btn-mod-1">Tìm tất cả</button>
 <ul id="list-mod-2">
 </ul>
 </div>
@@ -123,7 +121,7 @@ MAIN_PAGE = `<div id="body">
 <button onclick="app.closeMess()" class="btn-close">Đóng</button>
 </div>
 </div>`,
-    CREATE_PAGE = `  <h1 style="text-align:center">Đăng ký Microbit</h1>
+    CREATE_PAGE = `<h1 style="text-align:center">Đăng ký Microbit</h1>
 
     <div style="display: flex;justify-content: space-between;">
         <button onclick="app.ChangeMainPage()" id="btn-mod" class="btn-mod">Trở về</button>
@@ -131,31 +129,30 @@ MAIN_PAGE = `<div id="body">
 
 
     <div class="dung__form_signup-microbit">
-        <form action="" method="POST" class="dung__form">
-            <div class="dung__form_component">
-                <div class="dung_lable_btn">
-                    <label for="btn_micro-name">Tên Microbit: </label>
-                    <input type="text" id="btn_micro-name" name="btn_micro-name" required>
-                </div>
-                <div class="dung_lable_btn">
-                    <label for="btn_user-name">Adafruit user name: </label>
-                    <input type="text" id="btn_user-name" name="btn_user-name" required>
-                </div>
-                <div class="dung_lable_btn">
-                    <label for="btn_AIO-key">AIO key: </label>
-                    <input type="text" id="btn_AIO-key" name="btn_AIO-key" required>
-                </div>
+        <div class="dung__form_component">
+            <div class="dung_lable_btn">
+                <label for="micro-name">Tên Microbit: </label>
+                <input type="text" id="micro-name">
             </div>
-            <div class="dung__form_component">
-                <input type="submit" value="Xác nhận">
+            <div class="dung_lable_btn">
+                <label for="ada-name">Adafruit user name: </label>
+                <input type="text" id="ada-name">
             </div>
-        </form>
+            <div class="dung_lable_btn">
+                <label for="AIO-key">AIO key: </label>
+                <input type="text" id="AIO-key">
+            </div>
+        </div>
+        <div class="dung__form_component">
+            <button onclick="createNew();">Xác nhận</button>
+        </div>
     </div>`,
     SETTING_PAGE = `
     <h2 style="text-align:center">Microbitname #1007</h2>
 
     <div style="display: flex;justify-content: space-between;">
-        <button onclick="app.ChangeMainPage()" id="btn-mod" class="btn-mod">Trở về</button>
+        <button onclick="" id="back-detail" class="btn-mod">Trở về</button>
+        <button onclick="" id="delete-mic" class="btn-mod">Xoá Microbit</button>
     </div>
 
     <div class="dung__card">

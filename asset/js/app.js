@@ -137,7 +137,6 @@ class App {
                                 e.style.backgroundColor = "skyblue";
                             }
                         }
-                        document.getElementById("status").innerHTML = "Đang tưới..."
                         app.runfunction = "page-detail";
                     } else {
                         console.log("No data JSON");
@@ -160,7 +159,8 @@ class App {
     }
     setting() {
         document.getElementById("wrapper-all").innerHTML = SETTING_PAGE;
-        document.getElementById("btn-mod").setAttribute("onclick", "app.pagedetail('" + localStorage.getItem("micro-name") + "'," + localStorage.getItem("micro-id") + ");");
+        document.getElementById("back-detail").setAttribute("onclick", "app.pagedetail('" + localStorage.getItem("micro-name") + "'," + localStorage.getItem("micro-id") + ");");
+        document.getElementById("delete-mic").setAttribute("onclick", "delete_mic(" + localStorage.getItem("micro-id") + ");");
     }
     showMainPage() {
         document.getElementById("wrapper-all").innerHTML = MAIN_PAGE;
@@ -308,7 +308,8 @@ class App {
 
     }
     closeMess() {
-        document.getElementsByClassName("modal")[0].remove();
+        if (document.getElementsByClassName("modal")[0])
+            document.getElementsByClassName("modal")[0].remove();
     }
     messList(e) {
         let modal = document.getElementsByClassName("modal")[0];
@@ -328,4 +329,44 @@ class App {
             document.getElementById("list-mess-box").appendChild(c2);
         }
     }
+}
+getva = (a) => {
+    return document.getElementById(a).value;
+}
+createNew = () => {
+    let mib_n = getva("micro-name");
+    let ada_n = getva("ada-name");
+    let aio_key = getva("AIO-key");
+    let u_id = getCookie("user-id");
+    $.post(URL + "add.php", {
+            name: mib_n,
+            aio_key: aio_key,
+            ada_username: ada_n,
+            id: u_id
+        },
+        function(data, status) {
+            if (status === 'success') {
+                if (data === 'fail') {
+                    app.messAlert("Đã Tồn tại microbit tên : " + mib_n + ".");
+                } else {
+                    app.messAlert("Đã cập nhật thành công micro bit mới với tên : " + mib_n + ".");
+                    document.getElementById("micro-name").value = "";
+                    document.getElementById("ada-name").value = "";
+                    document.getElementById("AIO-key").value = "";
+                }
+            }
+        });
+}
+delete_mic = (id) => {
+    $.get(URL + "delete.php", {
+            id: id
+        },
+        function(data, status) {
+            if (status === 'success') {
+                app.ChangeMainPage();
+                app.messAlert("đã xoá thành công microbit với id : " + id);
+            } else {
+                app.messAlert("Không thể xoá!");
+            }
+        });
 }

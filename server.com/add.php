@@ -18,8 +18,8 @@ if($numresult>=1){  // đã tồn tại microbit
 }
 else{ // microbit chua ton tai
 
-    $query="INSERT INTO microbits (`microbit_name`, `AIO_key`, `AIO_key_2`, `ada_username`, `microbit_owner`)
-    VALUES('$microbit_name','$aio_key','$aio_key_2','$ada_username','$owner_id')";
+    $query="INSERT INTO microbits (`microbit_name`, `AIO_key`, `AIO_key_2`, `ada_username`, `humi_lower`,`humi_upper`,`microbit_owner`)
+    VALUES('$microbit_name','$aio_key','$aio_key_2','$ada_username',25,35,'$owner_id')";
     $db->send($query);
     echo 'done';
 }
