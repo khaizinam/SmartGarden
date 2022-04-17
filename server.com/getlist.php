@@ -2,11 +2,7 @@
 
 include "conn.php";
 $db = new DataBase();
-// $user_id=$_GET['id'];
-
-// test ============
-$user_id='1';
-
+$user_id= $_GET['id'];
 
 $query="SELECT *
         FROM microbits AS M
