@@ -30,7 +30,7 @@ const LOGIN_PAGE = `<div class="form-log">
 </div>
 <div style="display: flex;justify-content: space-between;">
 <button onclick="app.ChangeMainPage()"  class="btn-mod">Trở về</button>
-<h2 id="mb-name">Microbit 1 #1005</h2>
+<h2 id="mb-name"></h2>
 <div>
 <button onclick="app.dashboard()"  class="btn-mod">Lịch sử</button><button onclick="app.setting()"  class="btn-mod">Cài đặt</button>
 </div>
@@ -40,14 +40,14 @@ const LOGIN_PAGE = `<div class="form-log">
 <div class="box-1">
 <span>Nhiệt độ</span>
 <br>
-<span id="temperature">16.6 ℃</span>
+<span id="temperature"></span>
 </div>
 </div>
 <div id="conponent-1-right">
 <div class="box-1">
 <span>Độ ẩm không khí</span>
 <br>
-<span id="hunidity">90.7 %</span>
+<span id="hunidity"></span>
 </div>
 </div>
 </div>
@@ -150,7 +150,7 @@ const LOGIN_PAGE = `<div class="form-log">
     SETTING_PAGE = `<h2 style="text-align:center">Microbitname #1007</h2>
 
 <div style="display: flex;justify-content: space-between;">
-    <button onclick="app.ChangeMainPage()" id="btn-mod" class="btn-mod">Trở về</button>
+    <button onclick="" id="btn-mod" class="btn-mod">Trở về</button>
 </div>
 
 <div class="dung__card">

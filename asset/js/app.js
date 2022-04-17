@@ -25,6 +25,41 @@ class App {
     }
     Networkpagedetail() {
         console.log("page detail");
+        $.get(URL + "getvalue.php", {
+                id: localStorage.getItem("micro-id")
+            },
+            function(data, status) {
+                if (status === 'success') {
+                    if (isJsonString(data)) {
+                        console.log("có data list");
+                        let res = JSON.parse(data);
+                        document.getElementById("temperature").innerHTML = res.temp + "℃";
+                        document.getElementById("hunidity").innerHTML = res.humi + "%";
+                        if (res.auto == 1) {
+                            app.mod.AUTO_WATER.on = true;
+                        } else if (res.auto == 0) app.mod.AUTO_WATER.on = false;
+
+                        if (res.power == 1) {
+                            app.mod.WATER_POWER.on = true;
+                        } else if (res.power == 0) app.mod.WATER_POWER.on = false;
+
+                        for (let key in app.mod) {
+                            let e = document.getElementById(app.mod[key].id);
+                            if (app.mod[key].on == false) {
+                                e.innerHTML = "TẮT";
+                                e.style.backgroundColor = "white";
+                            } else {
+                                e.innerHTML = "BẬT";
+                                e.style.backgroundColor = "skyblue";
+                            }
+                        }
+                    } else {
+                        console.log("No data JSON");
+                    }
+                } else {
+                    this.runfunction = "";
+                }
+            });
     }
     getListMicro() {
             $.get(URL + "getlist.php", {
@@ -38,7 +73,7 @@ class App {
                                 res.forEach(element => {
                                     console.log(element.name + " " + element.id + "\n");
                                     let inner = `<span>` + element.name + `  #` + element.id + `</span>
-                                    <button data-="` + element.id + `" onclick="app.pagedetail(this)" class="btn-mod">SELECT</button>`;
+                                    <button onclick="app.pagedetail('` + element.name + `',` + element.id + `);" class="btn-mod">SELECT</button>`;
                                     app.addElement(document.getElementById('list-mod-2'), "li", ["style", "min-height: 40px;"], inner);
                                 });
 
@@ -65,9 +100,12 @@ class App {
         this.runfunction = "main-page";
     }
 
-    pagedetail() {
-        this.showPageDetail();
+    pagedetail(name, id) {
+        localStorage.setItem("micro-name", name);
+        localStorage.setItem("micro-id", id);
         this.UpdateMod();
+        this.showPageDetail();
+        document.getElementById('mb-name').innerHTML = localStorage.getItem("micro-name") + ' #' + localStorage.getItem("micro-id");
         this.printname();
         document.getElementById("status").innerHTML = "Đang tưới..."
         this.runfunction = "page-detail";
@@ -80,6 +118,7 @@ class App {
     }
     setting() {
         document.getElementById("wrapper-all").innerHTML = SETTING_PAGE;
+        document.getElementById("btn-mod").setAttribute("onclick", "app.pagedetail('" + localStorage.getItem("micro-name") + "'," + localStorage.getItem("micro-id") + ");");
     }
     showMainPage() {
         document.getElementById("wrapper-all").innerHTML = MAIN_PAGE;
@@ -92,8 +131,10 @@ class App {
         document.getElementById("wrapper-all").innerHTML = CREATE_PAGE;
     }
     printname() {
-            document.getElementById("user-name").innerHTML = this.user.name;
-            document.getElementById("user-id").innerHTML = "#" + this.user.id;
+            app.user.name = getCookie("user-name");
+            app.user.id = getCookie("user-id");
+            document.getElementById("user-name").innerHTML = getCookie("user-name");
+            document.getElementById("user-id").innerHTML = "#" + getCookie("user-id");
         }
         /* ---------------------  ACTION ---------------------------  */
     checkform() {
@@ -176,18 +217,7 @@ class App {
         }
     }
     UpdateMod() {
-        document.getElementById("temperature").innerHTML = "30 %";
-        document.getElementById("hunidity").innerHTML = "30 %";;
-        for (let key in this.mod) {
-            let e = document.getElementById(this.mod[key].id);
-            if (this.mod[key].on == false) {
-                e.innerHTML = "TẮT";
-                e.style.backgroundColor = "white";
-            } else {
-                e.innerHTML = "BẬT";
-                e.style.backgroundColor = "skyblue";
-            }
-        }
+        this.Networkpagedetail();
     }
     addElement(parent, type, atr, inner) {
         let c = document.createElement(type);

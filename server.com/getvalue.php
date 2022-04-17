@@ -3,10 +3,10 @@
 include 'conn.php';
 
 $db= new DataBase();
-// $microbit_id=$_GET['microbit_id'];
+$microbit_id=$_GET['id'];
 
 // test ===================
-$microbit_id=16;
+// $microbit_id=16;
 
 // lay thong tin dieu kien cua microbit 
     //  aioKey
@@ -40,15 +40,8 @@ $returnData=array('temp'=>$temp,
                   'power'=>$power,
                   'auto'=>$auto,
 );
+echo json_encode($returnData);
 
-echo 'temp: '.$returnData['temp'];
-echo '<br>';
-echo 'humi: '.$returnData['humi'];
-echo '<br>';
-echo 'power: '.$returnData['power'];
-echo '<br>';
-echo 'auto: '.$returnData['auto'];
-echo '<br>';
 
 // echo 'tempp:'.$temp;
 // echo '<br>';

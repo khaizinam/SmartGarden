@@ -1,4 +1,4 @@
-const URL = "http://localhost/SmartGarden/server.com/";
+const URL = "http://localhost/Smartgarden/SmartGarden/server.com/";
 
 function isJsonString(str) {
     try {
@@ -56,4 +56,4 @@ setInterval(function() {
     } else if (app.runfunction === "page-detail") {
         app.Networkpagedetail();
     }
-}, 1000);
+}, 10000);
