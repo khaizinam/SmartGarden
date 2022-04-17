@@ -2,13 +2,13 @@
 
 include "conn.php";
 $db = new DataBase();
-// $mode=$_GET['mode'];
-// $microbit_id=$_GET['microbit_id'];
-// $type = $_GET['type'];
+$mode=$_GET['mode'];
+$microbit_id=$_GET['microbit_id'];
+$type = $_GET['type'];
 // test
-$mode= 1;
-$microbit_id= 1;
-$type = 'auto';
+// $mode= 1;
+// $microbit_id= 1;
+// $type = 'auto';
 
 $query="SELECT *
         FROM microbits

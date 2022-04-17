@@ -6,11 +6,11 @@ class App {
         }
         this.prDiv = document.getElementById("body");
         this.mod = {
-            "AUTO_WATER": {
+            "auto": {
                 "on": true,
                 "id": "btn-auto-water"
             },
-            "WATER_POWER": {
+            "power": {
                 "on": true,
                 "id": "btn-water-power"
             }
@@ -36,12 +36,12 @@ class App {
                         document.getElementById("temperature").innerHTML = res.temp + "℃";
                         document.getElementById("hunidity").innerHTML = res.humi + "%";
                         if (res.auto == 1) {
-                            app.mod.AUTO_WATER.on = true;
-                        } else if (res.auto == 0) app.mod.AUTO_WATER.on = false;
+                            app.mod.auto.on = true;
+                        } else if (res.auto == 0) app.mod.auto.on = false;
 
                         if (res.power == 1) {
-                            app.mod.WATER_POWER.on = true;
-                        } else if (res.power == 0) app.mod.WATER_POWER.on = false;
+                            app.mod.power.on = true;
+                        } else if (res.power == 0) app.mod.power.on = false;
 
                         for (let key in app.mod) {
                             let e = document.getElementById(app.mod[key].id);
@@ -113,12 +113,12 @@ class App {
                         console.log("có data list");
                         let res = JSON.parse(data);
                         if (res.auto == 1) {
-                            app.mod.AUTO_WATER.on = true;
-                        } else if (res.auto == 0) app.mod.AUTO_WATER.on = false;
+                            app.mod.auto.on = true;
+                        } else if (res.auto == 0) app.mod.auto.on = false;
 
                         if (res.power == 1) {
-                            app.mod.WATER_POWER.on = true;
-                        } else if (res.power == 0) app.mod.WATER_POWER.on = false;
+                            app.mod.power.on = true;
+                        } else if (res.power == 0) app.mod.power.on = false;
                         //
                         document.getElementById("wrapper-all").innerHTML = PAGE_DETAIL;
                         //
@@ -236,19 +236,41 @@ class App {
     }
     clickMod(m) {
         let atr = m.getAttribute('data-');
-        for (let key in this.mod) {
+        for (let key in app.mod) {
             if (key == atr) {
-                let elemment = document.getElementById(this.mod[key].id);
-                if (this.mod[key].on == false) {
-                    this.mod[key].on = true;
-                    elemment.innerHTML = "BẬT";
-                    elemment.style.backgroundColor = "skyblue";
-                    console.log(atr + " : BẬT");
+                let elemment = document.getElementById(app.mod[key].id);
+                if (app.mod[key].on == false) {
+                    $.get(URL + "switch.php", {
+                            mode: 1,
+                            microbit_id: localStorage.getItem("micro-id"),
+                            type: key
+                        },
+                        function(data, status) {
+                            if (status === 'success') {
+                                app.mod[key].on = true;
+                                elemment.innerHTML = "BẬT";
+                                elemment.style.backgroundColor = "skyblue";
+                                console.log(atr + " : BẬT");
+                            } else {
+
+                            }
+                        });
                 } else {
-                    this.mod[key].on = false
-                    elemment.innerHTML = "TẮT";
-                    elemment.style.backgroundColor = "white";
-                    console.log(atr + " : TẮT");
+                    $.get(URL + "switch.php", {
+                            mode: 0,
+                            microbit_id: localStorage.getItem("micro-id"),
+                            type: key
+                        },
+                        function(data, status) {
+                            if (status === 'success') {
+                                app.mod[key].on = false
+                                elemment.innerHTML = "TẮT";
+                                elemment.style.backgroundColor = "white";
+                                console.log(atr + " : TẮT");
+                            } else {
+
+                            }
+                        });
                 }
             }
         }
