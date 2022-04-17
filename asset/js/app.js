@@ -101,14 +101,54 @@ class App {
     }
 
     pagedetail(name, id) {
+        app.messAlert("Đang tải trang chi tiết, vui lòng đợi giây lát");
         localStorage.setItem("micro-name", name);
         localStorage.setItem("micro-id", id);
-        this.UpdateMod();
-        this.showPageDetail();
-        document.getElementById('mb-name').innerHTML = localStorage.getItem("micro-name") + ' #' + localStorage.getItem("micro-id");
-        this.printname();
-        document.getElementById("status").innerHTML = "Đang tưới..."
-        this.runfunction = "page-detail";
+        $.get(URL + "getvalue.php", {
+                id: localStorage.getItem("micro-id")
+            },
+            function(data, status) {
+                if (status === 'success') {
+                    if (isJsonString(data)) {
+                        console.log("có data list");
+                        let res = JSON.parse(data);
+                        if (res.auto == 1) {
+                            app.mod.AUTO_WATER.on = true;
+                        } else if (res.auto == 0) app.mod.AUTO_WATER.on = false;
+
+                        if (res.power == 1) {
+                            app.mod.WATER_POWER.on = true;
+                        } else if (res.power == 0) app.mod.WATER_POWER.on = false;
+                        //
+                        document.getElementById("wrapper-all").innerHTML = PAGE_DETAIL;
+                        //
+                        document.getElementById("temperature").innerHTML = res.temp + "℃";
+                        document.getElementById("hunidity").innerHTML = res.humi + "%";
+                        document.getElementById('mb-name').innerHTML = localStorage.getItem("micro-name") + ' #' + localStorage.getItem("micro-id");
+                        for (let key in app.mod) {
+                            let e = document.getElementById(app.mod[key].id);
+                            if (app.mod[key].on == false) {
+                                e.innerHTML = "TẮT";
+                                e.style.backgroundColor = "white";
+                            } else {
+                                e.innerHTML = "BẬT";
+                                e.style.backgroundColor = "skyblue";
+                            }
+                        }
+                        document.getElementById("status").innerHTML = "Đang tưới..."
+                        app.runfunction = "page-detail";
+                    } else {
+                        console.log("No data JSON");
+                        app.runfunction = "";
+                        app.closeMess();
+                        app.messAlert("Không thể lấy data từ adafruit");
+                    }
+                } else {
+                    app.runfunction = "";
+                    app.closeMess();
+                    app.messAlert("Không thể gửi yêu cầu tới adafruit");
+                }
+            });
     }
     dashboard() {
         document.getElementById("wrapper-all").innerHTML = `<button onclick="app.ChangeMainPage()"  class="btn-mod">Trở về</button>`;
@@ -122,9 +162,6 @@ class App {
     }
     showMainPage() {
         document.getElementById("wrapper-all").innerHTML = MAIN_PAGE;
-    }
-    showPageDetail() {
-        document.getElementById("wrapper-all").innerHTML = PAGE_DETAIL;
     }
     addNewPage() {
 
