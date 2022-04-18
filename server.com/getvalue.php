@@ -11,21 +11,22 @@ $query = "SELECT m.AIO_key as aioKey, m.ada_username as adaUserName
 
 $sql = $db->send($query);
 $row=$sql->fetch_assoc();
-$data=array('aioKey'=>$row["aioKey"],
-            'adaUserName'=>$row['adaUserName']);
-$json=($data);
-$aioKey= $json['aioKey'];
-$adaUserName= $json['adaUserName'];
+$adaUserName= $row['adaUserName'];
 
-$temp=$db->getTemp($adaUserName);
-$humi=$db->getHumi($adaUserName);
-$power=$db->getpower($adaUserName);
-$auto=$db->getAuto($adaUserName);
+function GETdata($username , $feed_key) 
+    {
+        $url = "https://io.adafruit.com/api/v2/$username/feeds/$feed_key";
+        return file_get_contents($url);
+    };
+$temp = json_decode(GETdata($adaUserName , "pj-temp"),true);
+$humi = json_decode(GETdata($adaUserName , "pj-humi"),true);
+$power = json_decode(GETdata($adaUserName , "pj-pump-power-source"),true);
+$auto = json_decode(GETdata($adaUserName , "pj-pump-auto"),true);
 
-$res = array('temp'=>$temp,
-                  'humi'=>$humi,
-                  'power'=>$power,
-                  'auto'=>$auto,
+$res = array('temp'=>$temp["last_value"],
+                  'humi'=>$humi["last_value"],
+                  'power'=>$power["last_value"],
+                  'auto'=>$auto["last_value"],
 );
 echo json_encode($res);
 ?>

@@ -30,31 +30,33 @@ class App {
             },
             function(data, status) {
                 if (status === 'success') {
-                    if (isJsonString(data)) {
-                        console.log("có data list");
-                        let res = JSON.parse(data);
-                        document.getElementById("temperature").innerHTML = res.temp + "℃";
-                        document.getElementById("hunidity").innerHTML = res.humi + "%";
-                        if (res.auto == 1) {
-                            app.mod.auto.on = true;
-                        } else if (res.auto == 0) app.mod.auto.on = false;
+                    if (app.runfunction === "page-detail") {
+                        if (isJsonString(data)) {
+                            console.log("có data list");
+                            let res = JSON.parse(data);
+                            document.getElementById("temperature").innerHTML = res.temp + "℃";
+                            document.getElementById("hunidity").innerHTML = res.humi + "%";
+                            if (res.auto == 1) {
+                                app.mod.auto.on = true;
+                            } else if (res.auto == 0) app.mod.auto.on = false;
 
-                        if (res.power == 1) {
-                            app.mod.power.on = true;
-                        } else if (res.power == 0) app.mod.power.on = false;
+                            if (res.power == 1) {
+                                app.mod.power.on = true;
+                            } else if (res.power == 0) app.mod.power.on = false;
 
-                        for (let key in app.mod) {
-                            let e = document.getElementById(app.mod[key].id);
-                            if (app.mod[key].on == false) {
-                                e.innerHTML = "TẮT";
-                                e.style.backgroundColor = "white";
-                            } else {
-                                e.innerHTML = "BẬT";
-                                e.style.backgroundColor = "skyblue";
+                            for (let key in app.mod) {
+                                let e = document.getElementById(app.mod[key].id);
+                                if (app.mod[key].on == false) {
+                                    e.innerHTML = "TẮT";
+                                    e.style.backgroundColor = "white";
+                                } else {
+                                    e.innerHTML = "BẬT";
+                                    e.style.backgroundColor = "skyblue";
+                                }
                             }
+                        } else {
+                            console.log("No data JSON");
                         }
-                    } else {
-                        console.log("No data JSON");
                     }
                 } else {
                     this.runfunction = "";
@@ -104,7 +106,9 @@ class App {
         localStorage.setItem("micro-name", name);
         localStorage.setItem("micro-id", id);
         document.getElementById("wrapper-all").innerHTML = PAGE_DETAIL;
+        app.printname();
         app.messAlert("Đang tải trang chi tiết, vui lòng đợi giây lát");
+        app.runfunction = "page-detail";
         $.get(URL + "getvalue.php", {
                 id: localStorage.getItem("micro-id")
             },
@@ -112,32 +116,33 @@ class App {
                 if (status === 'success') {
                     if (isJsonString(data)) {
                         console.log("có data list");
-                        let res = JSON.parse(data);
-                        if (res.auto == 1) {
-                            app.mod.auto.on = true;
-                        } else if (res.auto == 0) app.mod.auto.on = false;
+                        if (app.runfunction === "page-detail") {
+                            let res = JSON.parse(data);
+                            if (res.auto == 1) {
+                                app.mod.auto.on = true;
+                            } else if (res.auto == 0) app.mod.auto.on = false;
 
-                        if (res.power == 1) {
-                            app.mod.power.on = true;
-                        } else if (res.power == 0) app.mod.power.on = false;
-                        //
-                        document.getElementById("micro-detail").innerHTML = Micro_detail;
-                        if (document.getElementsByClassName("modal")[0]) app.closeMess();
-                        //
-                        document.getElementById("temperature").innerHTML = res.temp + "℃";
-                        document.getElementById("hunidity").innerHTML = res.humi + "%";
-                        document.getElementById('mb-name').innerHTML = localStorage.getItem("micro-name") + ' #' + localStorage.getItem("micro-id");
-                        for (let key in app.mod) {
-                            let e = document.getElementById(app.mod[key].id);
-                            if (app.mod[key].on == false) {
-                                e.innerHTML = "TẮT";
-                                e.style.backgroundColor = "white";
-                            } else {
-                                e.innerHTML = "BẬT";
-                                e.style.backgroundColor = "skyblue";
+                            if (res.power == 1) {
+                                app.mod.power.on = true;
+                            } else if (res.power == 0) app.mod.power.on = false;
+                            //
+                            document.getElementById("micro-detail").innerHTML = Micro_detail;
+                            if (document.getElementsByClassName("modal")[0]) app.closeMess();
+                            //
+                            document.getElementById("temperature").innerHTML = res.temp + "℃";
+                            document.getElementById("hunidity").innerHTML = res.humi + "%";
+                            document.getElementById('mb-name').innerHTML = localStorage.getItem("micro-name") + ' #' + localStorage.getItem("micro-id");
+                            for (let key in app.mod) {
+                                let e = document.getElementById(app.mod[key].id);
+                                if (app.mod[key].on == false) {
+                                    e.innerHTML = "TẮT";
+                                    e.style.backgroundColor = "white";
+                                } else {
+                                    e.innerHTML = "BẬT";
+                                    e.style.backgroundColor = "skyblue";
+                                }
                             }
                         }
-                        app.runfunction = "page-detail";
                     } else {
                         console.log("No data JSON");
                         app.runfunction = "";
@@ -152,12 +157,15 @@ class App {
             });
     }
     dashboard() {
+        app.runfunction = "";
         document.getElementById("wrapper-all").innerHTML = `<button onclick="app.ChangeMainPage()"  class="btn-mod">Trở về</button>`;
     }
     userSetting() {
+        app.runfunction = "";
         document.getElementById("wrapper-all").innerHTML = `<button onclick="app.ChangeMainPage()"  class="btn-mod">Trở về</button>`;
     }
     setting() {
+        app.runfunction = "";
         document.getElementById("wrapper-all").innerHTML = SETTING_PAGE;
         document.getElementById("back-detail").setAttribute("onclick", "app.pagedetail('" + localStorage.getItem("micro-name") + "'," + localStorage.getItem("micro-id") + ");");
         document.getElementById("delete-mic").setAttribute("onclick", "delete_mic(" + localStorage.getItem("micro-id") + ");");

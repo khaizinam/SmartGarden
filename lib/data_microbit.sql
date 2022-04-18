@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2022 at 08:48 PM
+-- Generation Time: Apr 18, 2022 at 03:58 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `data_microbit`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `general_infor`
+--
+
+CREATE TABLE `general_infor` (
+  `infor_num` int(11) NOT NULL,
+  `microbit_id` int(3) NOT NULL,
+  `temperature` float NOT NULL,
+  `huminity` float NOT NULL,
+  `infor_time` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -46,9 +60,35 @@ INSERT INTO `microbits` (`microbit_id`, `microbit_name`, `AIO_key`, `AIO_key_2`,
 (1, 'Máy thử 1', 'BIAI74HrNYGA', 'CXXPRvrWxUallSXx', 'DuyThinh141592', 32, 32, 1),
 (7, 'khaiiznam', 'IAI74HrNYGAC', 'CXXPRvrWxUallSXx', 'DuyThinh141592', 25, 35, 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(3) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `user_password` varchar(30) NOT NULL,
+  `user_email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `user_email`) VALUES
+(1, 'khaizinam', '1', 'khaizinam@gmail.com');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `general_infor`
+--
+ALTER TABLE `general_infor`
+  ADD PRIMARY KEY (`infor_num`);
 
 --
 -- Indexes for table `microbits`
@@ -57,14 +97,32 @@ ALTER TABLE `microbits`
   ADD PRIMARY KEY (`microbit_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `general_infor`
+--
+ALTER TABLE `general_infor`
+  MODIFY `infor_num` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `microbits`
 --
 ALTER TABLE `microbits`
   MODIFY `microbit_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
