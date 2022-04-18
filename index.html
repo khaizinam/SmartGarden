@@ -19,11 +19,37 @@
 
 <body>
     <div id="wrapper-all" class="container">
-
+        <div id="body">
+            <div class="component-head container">
+                <div style="height: 160px;"></div>
+                <img style="position:absolute;top:-50px;width: 100%;" src="./asset/img/bg-1.jpg" alt="bg">
+                <div style="position: absolute;width: 100%" class="bar-1">
+                    <div>
+                        <span id="user-name">User name</span>
+                        <span id="user-id">#1075</span>
+                    </div>
+                </div>
+                <div class="wrapper-user">
+                    <img src="./asset/img/user-1.jpg" alt="bg">
+                </div>
+            </div>
+            <div>
+                <div style="display:flex;justify-content:space-between">
+                    <button onclick="app.logout()" class="btn-mod">Đăng xuất</button>
+                    <div>
+                        <button onclick="app.userSetting()" class="btn-mod">Tài khoản</button><button onclick="app.addNewPage()" class="btn-mod">Thêm máy mới</button>
+                    </div>
+                </div>
+                <div style="margin-top:40px" class="list-mod">
+                    <ul id="list-mod-2">
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="./asset/js/text.js"></script>
+    <!-- <script src="./asset/js/text.js"></script>
     <script src="./asset/js/app.js"></script>
-    <script src="./asset/js/main.js"></script>
+    <script src="./asset/js/main.js"></script> -->
 </body>
 
 </html>

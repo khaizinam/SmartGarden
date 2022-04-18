@@ -148,7 +148,7 @@ MAIN_PAGE = `<div id="body">
         </div>
     </div>`,
     SETTING_PAGE = `
-    <h2 style="text-align:center">Microbitname #1007</h2>
+    <h2 style="text-align:center">Microbit setting</h2>
 
     <div style="display: flex;justify-content: space-between;">
         <button onclick="" id="back-detail" class="btn-mod">Trở về</button>
