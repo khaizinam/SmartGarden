@@ -46,9 +46,6 @@ if(isset($_SERVER['REQUEST_METHOD'])&&($_SERVER['REQUEST_METHOD'] == 'POST')){
 
 
    }
-
-   echo $messageAlert;
-
 }      
 
 ?>
@@ -83,6 +80,7 @@ if(isset($_SERVER['REQUEST_METHOD'])&&($_SERVER['REQUEST_METHOD'] == 'POST')){
                 <input type="password" class="form-control" name="pass" id="password">
                 <br><label for="re-password" class="form-label">Nhập lại mật khẩu</label>
                 <input type="password" class="form-control" name="re-pass" id="re-password">
+                <br><span style="color:red"><?php echo $messageAlert; ?></span>
             </div>
             <div class="justify-content-between d-flex">
                 <a href="login.php?logout=true">Đã có tài khoản.</a>
