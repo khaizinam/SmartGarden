@@ -31,7 +31,7 @@ if(!isset($_COOKIE["user-name"]) && !isset($_COOKIE["user-id"])){
 
 <body>
     <div class="container">
-        <form action="login.php" method="post" id="form-login">
+        <form action="signin.php" method="post" id="form-login">
             <h1 style="text-align: center; color: skyblue;">SMART GARDEN</h1>
             <h2 style="text-align: center;">Đăng kí</h2>
             <div class="mb-3">
