@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2022 at 03:58 AM
+-- Generation Time: Apr 19, 2022 at 04:29 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -57,8 +57,7 @@ CREATE TABLE `microbits` (
 --
 
 INSERT INTO `microbits` (`microbit_id`, `microbit_name`, `AIO_key`, `AIO_key_2`, `ada_username`, `humi_lower`, `humi_upper`, `microbit_owner`) VALUES
-(1, 'Máy thử 1', 'BIAI74HrNYGA', 'CXXPRvrWxUallSXx', 'DuyThinh141592', 32, 32, 1),
-(7, 'khaiiznam', 'IAI74HrNYGAC', 'CXXPRvrWxUallSXx', 'DuyThinh141592', 25, 35, 1);
+(1, 'Máy thử', 'AI74HrNYGACC', 'CXXPRvrWxUallSXx', 'DuyThinh141592', 32, 32, 1);
 
 -- --------------------------------------------------------
 
@@ -116,7 +115,7 @@ ALTER TABLE `general_infor`
 -- AUTO_INCREMENT for table `microbits`
 --
 ALTER TABLE `microbits`
-  MODIFY `microbit_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `microbit_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`

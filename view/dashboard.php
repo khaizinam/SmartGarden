@@ -15,7 +15,7 @@
             <div class="d-flex">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <?php echo $_COOKIE["user-name"]; ?>
+                    Tài Khoản
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="#">Thông tin</a></li>
@@ -87,34 +87,40 @@
         });
     }
     var modalEdit = new bootstrap.Modal(document.getElementById('edit-micr'));
-    var modalToggle = document.getElementById('edit-micr'); 
 
 
     editM=(id)=>{
-        var mName = document.getElementById("edit-m-name").value;
-        var adaNme = document.getElementById("edit-ada-name").value;
-        var aiokey= document.getElementById("edit-aio-key").value;
-        console.log(mName +"\n" + adaNme +"\n" + aiokey);
         $.get("../model/info.php", {
             id: id
         },
         function(data, status) {
             if (status === 'success') {
-                if (data === 'fail') {
-                    
-                } else {
-                    document.getElementById("m-name").value = "";
-                    document.getElementById("ada-name").value = "";
-                    document.getElementById("aio-key").value = "";
-                    document.getElementById("soil-up-val").value = "";
-                    document.getElementById("soil-low-val").value = "";
-                    //modalEdit.hide();
-                    //location.href = "dashboard.php";
-                }
+                let res = JSON.parse(data);
+                document.getElementById("edit-m-name").value = res.mName;
+                document.getElementById("edit-ada-name").value = res.adaName;
+                document.getElementById("edit-aio-key").value = res.aio;
+                document.getElementById("edit-id").value = id;
             }
         });
-       
     }
+    submitEdit=()=>{
+        var mName = document.getElementById("edit-m-name").value;
+        var adaName = document.getElementById("edit-ada-name").value;
+        var aio = document.getElementById("edit-aio-key").value;
+        var id = document.getElementById("edit-id").value;
+        $.post("../model/update.php", {
+            id: id,
+            mName : mName,
+            adaName : adaName,
+            aio : aio
+        },
+        function(data, status) {
+            if (status === 'success') {
+                modalEdit.hide();
+                location.href = "dashboard.php";
+            }
+        });
+    };
 </script>
 </body>
 

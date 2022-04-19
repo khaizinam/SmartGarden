@@ -17,18 +17,53 @@
 </head>
 
 <body>
-    <div class="container">
-        <form action="" method="post" id="form-login">
-            <h1 style="text-align: center; color: skyblue;">SMART GARDEN</h1>
-            <h2 style="text-align: center;">Đăng nhập</h2>
-            <div class="mb-3">
-                <label for="user-name" class="form-label">Tên đăng nhập</label>
-                <input type="text" class="form-control" id="user-name" placeholder="Mời nhập">
-                <br><label for="password" class="form-label">Mật khẩu</label>
-                <input type="password" class="form-control" id="password">
+    <div id="wr-header">
+        <div id="header-1" class="container justify-content-between d-flex">
+            <img id="logo" src="../icon.png" alt="logo">
+            <div class="mobile-look">
+                <strong>SMART GARDEN PROJECT - TEAM A</strong>
             </div>
-            <input type="submit" class="btn btn-primary" value="Đăng nhập">
-        </form>
+
+            <div class="d-flex">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Tài Khoản
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Thông tin</a></li>
+                        <li><a class="dropdown-item" href="login.php?logout=true">Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wr-body" class="container">
+        <div style="border-radius:20px;border:1px solid black;padding:20px 10px;">
+            <h2>Lịch sử độ ẩm đất trong ngày</h2>
+            <span>19/04/2022</span>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nhiệt độ</th>
+                        <th scope="col">Độ ẩm</th>
+                        <th scope="col">Thời Gian</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>
+
+                        </td>
+                        <td>Hoạt động</td>
+                        <td>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 

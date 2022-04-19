@@ -33,7 +33,6 @@
 <script>
     var myModalEl = document.getElementById('addnew');
     var modal = new bootstrap.Modal(myModalEl);
-    var modalToggle = document.getElementById('addnew'); // relatedTarget
     function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -91,11 +90,12 @@
                             <input id="edit-ada-name" class="form-control" type="text" placeholder="Mời nhập" aria-label="default input example">
                             <span>AIO key</span><br>
                             <input id="edit-aio-key" class="form-control" type="text" placeholder="Mời nhập" aria-label="default input example">
+                            <input type="hidden" id="edit-id" name="edit-id">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
-                        <button type="button" class="btn btn-primary">Chấp nhận</button>
+                        <button onclick="submitEdit();" type="button" class="btn btn-primary">Chấp nhận</button>
                     </div>
                 </div>
             </div>
