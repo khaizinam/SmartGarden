@@ -1,0 +1,49 @@
+#wr-header {
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    border-bottom: 5px solid black;
+}
+
+#header-1 {
+    padding: 5px 5px;
+    height: 50px;
+    vertical-align: baseline;
+}
+
+a {
+    text-decoration: none;
+}
+
+.link-history {
+    font-weight: bold;
+}
+
+img#logo {
+    height: 90%;
+}
+
+#form-login {
+    width: 448px;
+    height: 500px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+
+@media only screen and (max-width: 700px) {
+    .mobile-look {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #form-login {
+        width: 80%;
+        padding: 20px;
+        border: none;
+        border-radius: none;
+        margin: 20px auto;
+    }
+}

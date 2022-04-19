@@ -10,7 +10,7 @@ $query = "SELECT m.AIO_key as aioKey, m.ada_username as adaUserName
           WHERE m.microbit_id ='$mi_id'";
 
 $sql = $db->send($query);
-$row=$sql->fetch_assoc();
+$row = $sql->fetch_assoc();
 $adaUserName= $row['adaUserName'];
 
 function GETdata($username , $feed_key) 
