@@ -1,14 +1,56 @@
 <?php
     include "../model/conn.php";
     $db = new DataBase();
-if(isset($_GET["logout"])){
-   
-}
-if(!isset($_COOKIE["user-name"]) && !isset($_COOKIE["user-id"])){
-   
-}else {
+    $messageAlert="";
+
+if(isset($_SERVER['REQUEST_METHOD'])&&($_SERVER['REQUEST_METHOD'] == 'POST')){
+   $username = $_POST['name']; // user name hander
+   $password = $_POST['pass']; // pass word
+   $repassword = $_POST['re-pass']; // re pass word
+
+   if($username=="" || $username ==' ' || $password ==''||$password ==' '|| $repassword==" "||$repassword==''){
+       $messageAlert=' thông tin cần được nhập đầy đủ';
+   }
+   else{
        
-}
+        $query = "SELECT *
+        FROM users
+        WHERE user_name = '$username'";
+
+        $num =$db->num($query);
+        if($num == 1){
+        // tự xử lý 
+        $messageAlert="tài khoản đã tồn tại";
+        }
+        else if($num == 0){
+
+
+        if($password!=$repassword){ // mật khẩu ko giống nhau
+        $messageAlert = "Nhập lại mật khẩu không khớp";
+        }
+        else{
+        $query1="
+        INSERT INTO `users` 
+        ( `user_name`, `user_password`) 
+        VALUES ( '$username', '$password');
+        ";
+        $sql1=$db->send($query1);
+        header("Location: login.php");
+        }
+        }
+
+
+
+
+
+
+
+   }
+
+   echo $messageAlert;
+
+}      
+
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +73,7 @@ if(!isset($_COOKIE["user-name"]) && !isset($_COOKIE["user-id"])){
 
 <body>
     <div class="container">
-        <form action="login.php" method="post" id="form-login">
+        <form action="signin.php" method="post" id="form-login">
             <h1 style="text-align: center; color: skyblue;">SMART GARDEN</h1>
             <h2 style="text-align: center;">Đăng kí</h2>
             <div class="mb-3">
