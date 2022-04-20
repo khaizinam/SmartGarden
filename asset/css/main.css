@@ -32,6 +32,33 @@ img#logo {
     margin: 20px auto;
 }
 
+
+.header{
+    text-align: center;
+}
+
+
+
+.radius-box{
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media only screen and (max-width: 700px) {
     .mobile-look {
         display: none;
@@ -47,3 +74,4 @@ img#logo {
         margin: 20px auto;
     }
 }
+
