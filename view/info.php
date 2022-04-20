@@ -81,7 +81,7 @@
         </div>
 
         <div class="info_base">
-            <h4>Thông tin liên hệ</h4>
+            <h4>Thông tin khác</h4>
             <div class="info_base_">
                 <div class="info_key">Email</div>
                 <div class="info_value"><?php echo $row['user_email'];?></div>
