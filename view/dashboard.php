@@ -7,7 +7,9 @@
 ?>
     <div id="wr-header">
         <div id="header-1" class="container justify-content-between d-flex">
-            <img id="logo" src="../icon.png" alt="logo">
+            <div> 
+                <a href="dashboard.php"><img id="logo" src="../icon.png" alt="logo"></a>
+            </div>
             <div class="mobile-look">
                 <strong>SMART GARDEN PROJECT - TEAM A</strong>
             </div>

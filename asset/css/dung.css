@@ -1,9 +1,7 @@
-body{
+body {
     background: black;
     color: white;
 }
-
-
 
 .dung__card {
     display: flex;
@@ -325,13 +323,14 @@ div.dung__form label {
     }
 }
 
+
 /**************************NEW*************************/
 
-.box{
+.box {
     display: flex;
 }
 
-.box_box{
+.box_box {
     width: 50%;
     height: 300px;
     display: flex;
@@ -339,56 +338,54 @@ div.dung__form label {
     align-items: center;
 }
 
-.box_box:nth-of-type(1){
+.box_box:nth-of-type(1) {
     color: #fd7e14;
     border-right: 2px solid white;
 }
 
-.box_box:nth-of-type(2){
-    color:sienna;
+.box_box:nth-of-type(2) {
+    color: sienna;
     border-left: 2px solid white;
-
 }
 
-.box_box_main{
+.box_box_main {
     width: 400px;
     font-size: 100px;
     font-weight: bold;
     text-align: center;
 }
 
-.box_box_emoji{
+.box_box_emoji {
     text-align: center;
 }
 
-.box_box_emoji i{
+.box_box_emoji i {
     font-size: 50px;
 }
 
-.box_box_control{
+.box_box_control {
     display: table;
 }
 
-.box_box_control_up-low{
+.box_box_control_up-low {
     display: table-row;
-    color: red;
-}
-
-.box_box_control_up-low:nth-of-type(2){
     color: green;
 }
 
-.box_box_control_up-low h2{
+.box_box_control_up-low:nth-of-type(2) {
+    color: red;
+}
+
+.box_box_control_up-low h2 {
     display: table-cell;
 }
 
-.box_box_control_up-low i{
+.box_box_control_up-low i {
     display: table-cell;
     font-size: 24px;
 }
 
-
-.component-1{
+.component-1 {
     font-size: 40px;
     /* display: flex;
     flex-direction: column;
@@ -398,59 +395,43 @@ div.dung__form label {
     transform: translateX(15%);
 }
 
-.reset_btn{
+.reset_btn {
     display: table-row;
 }
 
-.component-1 input{
+.component-1 input {
     display: table-cell;
 }
 
-.component-1 label{
+.component-1 label {
     display: table-cell;
 }
 
-
-
-
-
-
-
-@media only screen and (max-width: 960px) {
-
-}
+@media only screen and (max-width: 960px) {}
 
 @media only screen and (max-width: 760px) {
-    .box_box{
+    .box_box {
         height: 240px;
     }
-
-    .box_box_main{
+    .box_box_main {
         font-size: 80px;
     }
-
 }
 
 @media only screen and (max-width: 640px) {
-    .box_box{
+    .box_box {
         height: 250px;
     }
-    
-
-    .box_box_main{
+    .box_box_main {
         font-size: 70px;
     }
-    
-    .box_box_emoji i{
+    .box_box_emoji i {
         font-size: 40px;
     }
-    
-    .box_box_control_up-low i{
+    .box_box_control_up-low i {
         font-size: 18px;
     }
-    
-    
-    .component-1{
+    .component-1 {
         font-size: 25px;
     }
 }
