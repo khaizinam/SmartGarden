@@ -64,7 +64,7 @@
                         <td><?php echo  $row['key'];?></td>
                         <td>
                             <button onclick="editM(<?php echo  $row['microbit_id'];?>);" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-micr">Sửa</button>
-                            <button onclick="deleteMic(<?php echo  $row['microbit_id'];?>)" type="button" class="btn btn-danger">Xoá</button>
+                            <button onclick="deleteMic(<?php echo  $row['microbit_id'];?>)" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#xac-minh-xoa">Xoá</button>
                         </td>
                     </tr>
                     <?php $sothutu++; }?>
@@ -77,8 +77,11 @@
 ?>
 <script>
     deleteMic =(id)=> {
+        $("#micro-id-modal").html(id);
+    }
+    deleteMicOK=()=>{
         $.get("../model/delete.php", {
-            id: id
+            id: $("#micro-id-modal").html()
         },
         function(data, status) {
             if (status === 'success') {

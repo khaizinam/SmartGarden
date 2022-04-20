@@ -2,12 +2,12 @@
     if(!isset($_COOKIE["user-name"]) || !isset($_COOKIE["user-id"])){
         header("Location: login.php");
     }else {
-        $username = "khaizinam";
-        $password = "1";
+        $username = $_COOKIE["user-name"];
+        $uID = $_COOKIE["user-id"];
         $query = "SELECT user_id AS id ,user_name as 'name'
         FROM users
         WHERE user_name='$username'
-        AND user_password = '$password'
+        AND user_id = '$uID'
         LIMIT 1";
         if($db->num($query) == 0){
             header("Location: login.php");

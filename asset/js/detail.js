@@ -21,7 +21,70 @@ class Btnauto {
         $("#btn-automation").attr("class", "btn btn-dark");
     }
 }
+class Btnpower {
+    constructor() {
+
+    }
+    turnoffNow() {
+        $("#btn-power-show").html(`<button onclick="BtnPower.offNow()" type="button"
+            class="btn btn-outline-warning"><i class ="bi bi-exclamation-octagon"> </i> Tắt khẩn cấp</button >`);
+    }
+    turnoff() {
+        $("#btn-power-show").html(`<button onclick="BtnPower.off()" type="button"
+            class="btn btn-outline-danger"> Tắt Máy bơm</button>`);
+    }
+    turnon() {
+        $("#btn-power-show").html(`<button onclick="BtnPower.on()" type="button"
+            class="btn btn-outline-success"><i class="bi bi-droplet-fill"></i> Bật Máy bơm</button>`);
+    }
+    on() {
+        $.get("../model/switch.php", {
+                adaName: adaNameVal,
+                key: fullkey,
+                type: "power",
+                value: 1
+            },
+            function(data, status) {
+                if (status === 'success') {}
+            });
+    }
+    off() {
+        $.get("../model/switch.php", {
+                adaName: adaNameVal,
+                key: fullkey,
+                type: "power",
+                value: 0
+            },
+            function(data, status) {
+                if (status === 'success') {}
+            });
+    }
+    offNow() {
+        $.get("../model/switch.php", {
+                adaName: adaNameVal,
+                key: fullkey,
+                type: "power",
+                value: 0
+            },
+            function(data, status) {
+                if (status === 'success') {}
+            });
+        $.get("../model/switch.php", {
+                adaName: adaNameVal,
+                key: fullkey,
+                type: "auto",
+                value: 0
+            },
+            function(data, status) {
+                if (status === 'success') {}
+            });
+    }
+    clear() {
+        $("#btn-power-show").html("");
+    }
+}
 var BtnAuto = new Btnauto();
+var BtnPower = new Btnpower();
 updateValueSoil = () => {
     $.get("../model/value.php", {
             adaName: adaNameVal
@@ -64,7 +127,7 @@ EmojiTemp = (id, value) => {
     if (value >= 25 && value < 30) {
         statusEmoji = Emoeheart;
     } else if (value >= 20 && value < 25) {
-        statusEmoji = "bi bi-emoji-kiss";
+        statusEmoji = Emoeheart;
     } else if (value < 20) {
         statusEmoji = "bi bi-emoji-frown";
     } else statusEmoji = "bi bi-emoji-sunglasses";
@@ -88,10 +151,18 @@ setInterval(function() {
                     mess = ` <i class="bi bi-droplet-half"></i>
                     Máy đang tưới...`;
                     $("#status-static").css("color", "skyblue");
+                    if (res.auto == 1) {
+                        BtnPower.turnoffNow();
+                    } else BtnPower.turnoff();
                     powerMode = 1;
                 } else if (res.pow == 0) {
                     mess = `<i class="bi bi-droplet-half"></i> Máy đã dừng hoạt động...`;
                     $("#status-static").css("color", "white");
+                    if (res.auto == 0) {
+                        BtnPower.turnon();
+                    } else {
+                        BtnPower.clear();
+                    }
                     powerMode = 0;
                 }
                 $("#status-static").html(mess);
@@ -114,6 +185,7 @@ setInterval(function() {
 }, 2500);
 autoChange = () => {
     var valueSend = 0;
+    $("#mess-alert-auto").html("Đang xử lí chế độ Tự động tưới.");
     if (autoMode == 1) valueSend = 0;
     else valueSend = 1;
     $.get("../model/switch.php", {
@@ -124,6 +196,11 @@ autoChange = () => {
         },
         function(data, status) {
             if (status === 'success') {
+                if (valueSend == 1) {
+                    $("#mess-alert-auto").html("Chế độ Tự động tưới đã bật.");
+                } else {
+                    $("#mess-alert-auto").html("Chế độ Tự động tưới đã tắt.");
+                }
 
             }
         });

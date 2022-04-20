@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2022 at 04:29 PM
+-- Generation Time: Apr 20, 2022 at 10:15 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -49,15 +49,16 @@ CREATE TABLE `microbits` (
   `ada_username` varchar(50) NOT NULL,
   `humi_lower` float NOT NULL,
   `humi_upper` float NOT NULL,
-  `microbit_owner` int(3) NOT NULL
+  `microbit_owner` int(3) NOT NULL,
+  `key` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `microbits`
 --
 
-INSERT INTO `microbits` (`microbit_id`, `microbit_name`, `AIO_key`, `AIO_key_2`, `ada_username`, `humi_lower`, `humi_upper`, `microbit_owner`) VALUES
-(1, 'Máy thử', 'AI74HrNYGACC', 'CXXPRvrWxUallSXx', 'DuyThinh141592', 32, 32, 1);
+INSERT INTO `microbits` (`microbit_id`, `microbit_name`, `AIO_key`, `AIO_key_2`, `ada_username`, `humi_lower`, `humi_upper`, `microbit_owner`, `key`) VALUES
+(1, 'Máy thử', 'BIAI74HrNYGA', 'CXXPRvrWxUallSXx', 'DuyThinh141592', 32, 32, 1, 'ok');
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `user_email`) VALUES
-(1, 'khaizinam', '1', 'khaizinam@gmail.com');
+(1, 'khaizinam', '1', 'khaizinam@gmail.com'),
+(2, 'a', '1', ''),
+(3, 'admin1', '1234', '');
 
 --
 -- Indexes for dumped tables
@@ -115,13 +118,13 @@ ALTER TABLE `general_infor`
 -- AUTO_INCREMENT for table `microbits`
 --
 ALTER TABLE `microbits`
-  MODIFY `microbit_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `microbit_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

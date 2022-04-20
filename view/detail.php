@@ -68,6 +68,7 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="info.php">Thông tin</a></li>
+                        <li><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
                         <li><a class="dropdown-item" href="login.php?logout=true">Đăng xuất</a></li>
                     </ul>
                 </div>
@@ -111,7 +112,8 @@
             </div>
             <div id="status-static">
             </div>
-            <button type="button" class="btn btn-outline-warning"><i class="bi bi-exclamation-octagon"></i> Tắt khẩn cấp</button>
+            <div id="btn-power-show">
+            </div>
         </div>
     </div>
 
@@ -144,6 +146,7 @@
                         <div style="color: red;" id="mess-alert-value"></div>
                         <button onclick="autoChange()" class="btn btn-outline-dark" id="btn-automation"><i class="bi bi-cloud-rain-heavy"></i></button>
                         <span>Tự động tưới khi dưới ngưỡng, và dừng khi đạt ngưỡng.</span>
+                        <div style="color: blue;" id="mess-alert-auto"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>

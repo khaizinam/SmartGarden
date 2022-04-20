@@ -2,6 +2,20 @@
     include "../model/conn.php";
     $db = new DataBase();
     include "../php/checkCookie.php";
+    $db = new DataBase();
+    $userID = $_COOKIE["user-id"];
+    $query = "SELECT * 
+    FROM `users` 
+    WHERE user_id ='$userID'";
+    $sql = $db->send($query);
+    $row = $sql->fetch_assoc();
+
+
+    $query2 = "SELECT * 
+    FROM microbits 
+    WHERE microbit_owner ='$userID'";
+    $numMic = $db->num($query2);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,13 +70,13 @@
         <div class="info_base">
             <h4>Thông tin cơ bản</h4>
             <div class="info_base_">
-                <div class="info_key">Tên</div>
-                <div class="info_value">Nguyễn Văn A</div>
+                <div class="info_key">Tên đăng nhập</div>
+                <div class="info_value"><?php echo $row['user_name'];?></div>
             </div>
             <div class="line"></div>
             <div class="info_base_">
                 <div class="info_key">Số microbit</div>
-                <div class="info_value">X</div>
+                <div class="info_value"><?php echo  $numMic;?></div>
             </div>
         </div>
 
@@ -70,21 +84,48 @@
             <h4>Thông tin liên hệ</h4>
             <div class="info_base_">
                 <div class="info_key">Email</div>
-                <div class="info_value">abc@gmail.com</div>
+                <div class="info_value"><?php echo $row['user_email'];?></div>
             </div>
             <div class="line"></div>
             <div class="info_base_">
                 <div class="info_key">ID</div>
-                <div class="info_value">1564151265489256</div>
+                <div id="user-id-show" class="info_value"><?php echo $row['user_id'];?></div>
             </div>
             <div class="line"></div>
             <div class="info_base_">
                 <div class="info_key">Mật khẩu</div>
-                <div class="info_value">**********************</div>
+                <div id="pass-field" class="info_value">
+                    <?php echo $row['user_password'];?>
+                    <button onclick="changePass(<?php echo $userID; ?>)" type="button" class="btn btn-light"><i class="bi bi-pencil-square"></i></button>
+                </div>
             </div>
         </div>
-
     </div>
+    <script>
+        changePass=(id)=>{
+            $("#pass-field").html(`<input id="pass-value" class="form-control" type="text" placeholder="" aria-label="default input example"><br>
+            <button onclick="cancel()" type="button" class="btn btn-outline-danger">Huỷ</button>
+            <button onclick="sendPass()" type="button" class="btn btn-outline-success">Xác nhận</button>`);
+        }
+        cancel=()=>{
+            $("#pass-field").html(`<?php echo $row['user_password'];?><button onclick="changePass(<?php echo $userID; ?>)" type="button" class="btn btn-light"><i class="bi bi-pencil-square"></i></button>`);
+        }
+        sendPass=()=>{
+            let pass = $("#pass-value").val();
+            let id = $("#user-id-show").html();
+            if(pass != "" || pass != " "){
+                $.get("../model/changepass.php", {
+                id: id,
+                pass: pass
+            },
+            function(data, status) {
+                if (status === 'success') {
+                    location.href = "info.php";
+                }
+            });
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -15,12 +15,6 @@
                             <span>AIO key</span><br>
                             <input id="aio-key" class="form-control" type="text" placeholder="Mời nhập" aria-label="default input example">
                         </div>
-
-                        <div class="input-group mb-3">
-                            <input type="number" id="soil-up-val" class="form-control" placeholder="Ngưỡng trên" aria-label="Ngưỡng trên">
-                            <span class="input-group-text">Độ ẩm</span>
-                            <input type="number" id="soil-low-val" class="form-control" placeholder="Ngưỡng dưới" aria-label="Ngưỡng dưới">
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
@@ -47,9 +41,6 @@
         var mName = document.getElementById("m-name").value;
         var adaNme = document.getElementById("ada-name").value;
         var aiokey= document.getElementById("aio-key").value;
-        var soilUp = document.getElementById("soil-up-val").value;
-        var soilLow = document.getElementById("soil-low-val").value;
-        console.log(mName +"\n" + adaNme +"\n" + aiokey +"\n" + soilUp +"\n" + soilLow);
         $.post("../model/add.php", {
             name: mName,
             aio_key: aiokey,
@@ -64,8 +55,6 @@
                     document.getElementById("m-name").value = "";
                     document.getElementById("ada-name").value = "";
                     document.getElementById("aio-key").value = "";
-                    document.getElementById("soil-up-val").value = "";
-                    document.getElementById("soil-low-val").value = "";
                     modal.hide();
                     location.href = "dashboard.php";
                 }
@@ -100,3 +89,22 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+<div class="modal fade" id="xac-minh-xoa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xác nhận xoá</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            Bạn có muốn xoá Microbit id là ! <span id="micro-id-modal"></span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+        <button onclick="deleteMicOK()" type="button" class="btn btn-primary">Xoá</button>
+      </div>
+    </div>
+  </div>
+</div>
