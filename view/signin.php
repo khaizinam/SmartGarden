@@ -19,32 +19,23 @@ if(isset($_SERVER['REQUEST_METHOD'])&&($_SERVER['REQUEST_METHOD'] == 'POST')){
 
         $num =$db->num($query);
         if($num == 1){
-        // tự xử lý 
-        $messageAlert="tài khoản đã tồn tại";
+            // tự xử lý 
+            $messageAlert="tài khoản đã tồn tại";
         }
         else if($num == 0){
-
-
-        if($password!=$repassword){ // mật khẩu ko giống nhau
-        $messageAlert = "Nhập lại mật khẩu không khớp";
+            if($password!=$repassword){ // mật khẩu ko giống nhau
+                $messageAlert = "Nhập lại mật khẩu không khớp";
+            }
+            else{
+                $query1="
+                INSERT INTO `users` 
+                ( `user_name`, `user_password`) 
+                VALUES ( '$username', '$password');
+                ";
+                $sql1=$db->send($query1);
+                header("Location: login.php");
+            }
         }
-        else{
-        $query1="
-        INSERT INTO `users` 
-        ( `user_name`, `user_password`) 
-        VALUES ( '$username', '$password');
-        ";
-        $sql1=$db->send($query1);
-        header("Location: login.php");
-        }
-        }
-
-
-
-
-
-
-
    }
 }      
 
