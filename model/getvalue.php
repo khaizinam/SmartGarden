@@ -20,13 +20,12 @@ function GETdata($username , $feed_key)
     };
 $temp = json_decode(GETdata($adaUserName , "pj-temp"),true);
 $humi = json_decode(GETdata($adaUserName , "pj-humi"),true);
-$power = json_decode(GETdata($adaUserName , "pj-pump-power-source"),true);
-$auto = json_decode(GETdata($adaUserName , "pj-pump-auto"),true);
+// $power = json_decode(GETdata($adaUserName , "pj-pump-power-source"),true);
+// $auto = json_decode(GETdata($adaUserName , "pj-pump-auto"),true);
 
 $res = array('temp'=>$temp["last_value"],
-                  'humi'=>$humi["last_value"],
-                  'power'=>$power["last_value"],
-                  'auto'=>$auto["last_value"],
-);
+            'humi'=>$humi["last_value"],
+            'date'=>$humi["updated_at"]
+        );
 echo json_encode($res);
 ?>

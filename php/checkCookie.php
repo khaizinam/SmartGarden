@@ -10,7 +10,7 @@
         AND user_password = '$password'
         LIMIT 1";
         if($db->num($query) == 0){
-            header("Location: ../login.php");
+            header("Location: login.php");
         }else {
             $sql = $db->send($query);
             $row = $sql->fetch_assoc();

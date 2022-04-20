@@ -18,7 +18,7 @@
                     Tài Khoản
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Thông tin</a></li>
+                        <li><a class="dropdown-item" href="info.php">Thông tin</a></li>
                         <li><a class="dropdown-item" href="login.php?logout=true">Đăng xuất</a></li>
                     </ul>
                 </div>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div id="wr-body" class="container">
-        <a href="#" class="link-history"><?php echo $_COOKIE["user-name"]; ?></a>
+        <a href="info.php" class="link-history"><?php echo $_COOKIE["user-name"]; ?></a>
         <span class="link-history">></span>
         <span class="link-history">DashBoard</span>
         <br>
@@ -59,7 +59,7 @@
                         <td>
                             <a href="detail.php?id=<?php echo  $row["microbit_id"];?>"><?php echo  $row["microbit_name"];?></a>
                         </td>
-                        <td>Hoạt động</td>
+                        <td><?php echo  $row['key'];?></td>
                         <td>
                             <button onclick="editM(<?php echo  $row['microbit_id'];?>);" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-micr">Sửa</button>
                             <button onclick="deleteMic(<?php echo  $row['microbit_id'];?>)" type="button" class="btn btn-danger">Xoá</button>
