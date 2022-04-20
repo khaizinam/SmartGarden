@@ -45,20 +45,43 @@
         </div>
     </div>
     <div id="wr-body" class="container">
+        <a href="#" class="link-history"><?php echo $_COOKIE["user-name"]; ?></a>
+        <span class="link-history">></span>
+        <span class="link-history">DashBoard</span>
+        <br>
         <h1 class="header">Thông tin cá nhân</h1>
 
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+        <div class="info_base">
+            <h4>Thông tin cơ bản</h4>
+            <div class="info_base_">
+                <div class="info_key">Tên</div>
+                <div class="info_value">Nguyễn Văn A</div>
+            </div>
+            <div class="line"></div>
+            <div class="info_base_">
+                <div class="info_key">Số microbit</div>
+                <div class="info_value">X</div>
+            </div>
+        </div>
+        
+        <div class="info_base">
+            <h4>Thông tin liên hệ</h4>
+            <div class="info_base_">
+                <div class="info_key">Email</div>
+                <div class="info_value">abc@gmail.com</div>
+            </div>
+            <div class="line"></div>
+            <div class="info_base_">
+                <div class="info_key">ID</div>
+                <div class="info_value">1564151265489256</div>
+            </div>
+            <div class="line"></div>
+            <div class="info_base_">
+                <div class="info_key">Mật khẩu</div>
+                <div class="info_value">**********************</div>
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-            <!-- <div class="col-sm-10"> -->
-                <input type="password" class="form-control" id="inputPassword" />
-            <!-- </div> -->
-        </div>
-        <!-- <div class="radius-box"></div> -->
     </div>
 </body>
 
