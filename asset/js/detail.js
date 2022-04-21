@@ -133,56 +133,60 @@ EmojiTemp = (id, value) => {
     } else statusEmoji = "bi bi-emoji-sunglasses";
     $(id).attr("class", statusEmoji);
 }
-
+var loopRun = true;
 setInterval(function() {
-    $.get("../model/getvalue.php", {
-            adaName: adaNameVal
-        },
-        function(data, status) {
-            if (status === 'success') {
-                let res = JSON.parse(data);
-                var mess = "";
-                var mess2 = "";
-                $("#temp-value").html(res.temp + "℃");
-                $("#soil-value").html(res.humi + "%");
-                EmojiSoil("#emoji-status-soil", res.humi);
-                EmojiTemp("#emoji-status-temp", res.temp);
-                if (res.pow == 1) {
-                    mess = ` <i class="bi bi-droplet-half"></i>
+    if (loopRun == true) {
+        loopRun = false;
+        $.get("../model/getvalue.php", {
+                adaName: adaNameVal
+            },
+            function(data, status) {
+                if (status === 'success') {
+                    let res = JSON.parse(data);
+                    var mess = "";
+                    var mess2 = "";
+                    $("#temp-value").html(res.temp + "℃");
+                    $("#soil-value").html(res.humi + "%");
+                    EmojiSoil("#emoji-status-soil", res.humi);
+                    EmojiTemp("#emoji-status-temp", res.temp);
+                    if (res.pow == 1) {
+                        mess = ` <i class="bi bi-droplet-half"></i>
                     Máy đang tưới...`;
-                    $("#status-static").css("color", "skyblue");
-                    if (res.auto == 1) {
-                        BtnPower.turnoffNow();
-                    } else BtnPower.turnoff();
-                    powerMode = 1;
-                } else if (res.pow == 0) {
-                    mess = `<i class="bi bi-droplet-half"></i> Máy đã dừng hoạt động...`;
-                    $("#status-static").css("color", "white");
-                    if (res.auto == 0) {
-                        BtnPower.turnon();
-                    } else {
-                        BtnPower.clear();
+                        $("#status-static").css("color", "skyblue");
+                        if (res.auto == 1) {
+                            BtnPower.turnoffNow();
+                        } else BtnPower.turnoff();
+                        powerMode = 1;
+                    } else if (res.pow == 0) {
+                        mess = `<i class="bi bi-droplet-half"></i> Máy đã dừng hoạt động...`;
+                        $("#status-static").css("color", "white");
+                        if (res.auto == 0) {
+                            BtnPower.turnon();
+                        } else {
+                            BtnPower.clear();
+                        }
+                        powerMode = 0;
                     }
-                    powerMode = 0;
-                }
-                $("#status-static").html(mess);
-                if (res.auto == 1) {
-                    mess2 = ` <i class="bi bi-cloud-rain-fill"></i>
+                    $("#status-static").html(mess);
+                    if (res.auto == 1) {
+                        mess2 = ` <i class="bi bi-cloud-rain-fill"></i>
                     Chế độ tự động tưới đang được bật...`;
-                    $("#status-static-auto").css("color", "green");
-                    BtnAuto.on();
-                    autoMode = 1;
-                } else if (res.auto == 0) {
-                    mess2 = ` <i class="bi bi-cloud-rain-fill"></i>
+                        $("#status-static-auto").css("color", "green");
+                        BtnAuto.on();
+                        autoMode = 1;
+                    } else if (res.auto == 0) {
+                        mess2 = ` <i class="bi bi-cloud-rain-fill"></i>
                     Chế độ tự động tưới đã tắt...`;
-                    $("#status-static-auto").css("color", "white");
-                    BtnAuto.off();
-                    autoMode = 0;
+                        $("#status-static-auto").css("color", "white");
+                        BtnAuto.off();
+                        autoMode = 0;
+                    }
+                    $("#status-static-auto").html(mess2);
+                    loopRun = true;
                 }
-                $("#status-static-auto").html(mess2);
-            }
-        });
-}, 2500);
+            });
+    }
+}, 1000);
 autoChange = () => {
     var valueSend = 0;
     $("#mess-alert-auto").html("Đang xử lí chế độ Tự động tưới.");
