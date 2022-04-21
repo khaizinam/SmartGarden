@@ -63,7 +63,7 @@ class Btnpower {
         $.get("../model/switch.php", {
                 adaName: adaNameVal,
                 key: fullkey,
-                type: "power",
+                type: "auto",
                 value: 0
             },
             function(data, status) {
@@ -72,7 +72,7 @@ class Btnpower {
         $.get("../model/switch.php", {
                 adaName: adaNameVal,
                 key: fullkey,
-                type: "auto",
+                type: "power",
                 value: 0
             },
             function(data, status) {
