@@ -80,6 +80,8 @@
                             <span>AIO key</span><br>
                             <input id="edit-aio-key" class="form-control" type="text" placeholder="Mời nhập" aria-label="default input example">
                             <input type="hidden" id="edit-id" name="edit-id">
+                            <br>
+                            <button onclick="deleteMic()" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#xac-minh-xoa">Xoá Microbit này</button>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -91,20 +93,3 @@
         </div>
 
         <!-- Modal -->
-<div class="modal fade" id="xac-minh-xoa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Xác nhận xoá</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-            Bạn có muốn xoá Microbit id là ! <span id="micro-id-modal"></span>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
-        <button onclick="deleteMicOK()" type="button" class="btn btn-primary">Xoá</button>
-      </div>
-    </div>
-  </div>
-</div>

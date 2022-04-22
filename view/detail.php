@@ -84,7 +84,6 @@
         <br>
             <div class="justify-content-between d-flex">
                 <h3><?php echo $m_name?></h3>
-                <button  type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#setting-mic">Cài đặt <i class="bi bi-gear"></i></button>
             </div>
         <div class="box">
             <div class="box_box">
@@ -107,11 +106,19 @@
                         <h5 id="lower-value">Ngưỡng dưới: ...%</h5>
                         <i class="bi-caret-down-fill"></i>
                     </div>
-
+                    <div style="width:320px;margin: 20px auto 20px auto;">
+                        <div class="input-group mb-3">
+                            <input type="number" id="soil-up-val" class="form-control" placeholder="Ngưỡng trên" aria-label="Ngưỡng trên">
+                            <span class="input-group-text">Độ ẩm</span>
+                            <input type="number" id="soil-low-val" class="form-control" placeholder="Ngưỡng dưới" aria-label="Ngưỡng dưới">
+                            <button onclick="sendUpdate()" type="button" class="btn btn-primary">Chấp nhận</button>
+                        </div>
+                        <div style="color: red;" id="mess-alert-value"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div style="font-size: 25px; margin-top:40px" class="component-1">  
+        <div style="font-size: 25px; margin-top:80px ;margin-bottom : 100px" class="component-1">  
             <div id="status-static-alert">
             </div>
             <div id="status-static-auto">   
@@ -124,16 +131,6 @@
             <div id="btn-power-show">
             </div>
         </div>
-                    <div style="width:500px;margin: 80px auto 80px auto">
-                        <div class="input-group mb-3">
-                            <input type="number" id="soil-up-val" class="form-control" placeholder="Ngưỡng trên" aria-label="Ngưỡng trên">
-                            <span class="input-group-text">Độ ẩm</span>
-                            <input type="number" id="soil-low-val" class="form-control" placeholder="Ngưỡng dưới" aria-label="Ngưỡng dưới">
-                            <button onclick="sendUpdate()" type="button" class="btn btn-primary">Chấp nhận</button>
-                        </div>
-                        <div style="color: red;" id="mess-alert-value"></div>
-                    </div>
-
     </div>
 
     <!-- Modal -->

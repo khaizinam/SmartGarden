@@ -140,13 +140,13 @@ EmojiSoil = (id, value) => {
     if (value >= SoilUp) {
         statusEmoji = Emoeheart;
         $("#status-static-alert").css("color", "orange");
-        alertMess = "Chỉ số đang vượt ngưỡng cho phép.";
+        alertMess = "Chỉ số đang ở mức ổn định.";
     } else if (value <= SoilLow) {
         statusEmoji = Emodizzy;
         $("#status-static-alert").css("color", "red");
-        alertMess = "Chỉ số Thấp hơn ngưỡng cho phép.";
+        alertMess = "Chỉ số đang thấp hơn ngưỡng đã cài đặt.";
     } else {
-        alertMess = "Chỉ số đang Ổn định.";
+        alertMess = "Chỉ số đang ở mức ổn định.";
         $("#status-static-alert").css("color", "green");
         statusEmoji = EmoHappy;
     }

@@ -41,6 +41,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Tên</th>
                         <th scope="col">Key</th>
+                        <th scope="col">Lịch sử</th>
                         <th scope="col">Tuỳ chọn</th>
                     </tr>
                 </thead>
@@ -63,8 +64,10 @@
                         </td>
                         <td><?php echo  $row['key'];?></td>
                         <td>
-                            <button onclick="editM(<?php echo  $row['microbit_id'];?>);" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-micr">Sửa</button>
-                            <button onclick="deleteMic(<?php echo  $row['microbit_id'];?>)" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#xac-minh-xoa">Xoá</button>
+                            <a href="./history.php?id=<?php echo  $row['microbit_id'];?>">Xem lịch sử</a>
+                            </td>
+                        <td>
+                            <button onclick="editM(<?php echo  $row['microbit_id'];?>);" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-micr">Chỉnh sửa</button>
                         </td>
                     </tr>
                     <?php $sothutu++; }?>
@@ -76,12 +79,10 @@
     include "../php/modal.php";
 ?>
 <script>
-    deleteMic =(id)=> {
-        $("#micro-id-modal").html(id);
-    }
-    deleteMicOK=()=>{
+    deleteMic =()=> {
+        let id = document.getElementById("edit-id").value;
         $.get("../model/delete.php", {
-            id: $("#micro-id-modal").html()
+            id: id
         },
         function(data, status) {
             if (status === 'success') {
@@ -90,6 +91,7 @@
                 } 
             }
         });
+
     }
     var modalEdit = new bootstrap.Modal(document.getElementById('edit-micr'));
 
