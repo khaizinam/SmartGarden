@@ -76,6 +76,12 @@
         </div>
     </div>
     <div id="wr-body" class="container">
+        <a href="info.php" class="link-history"><?php echo $_COOKIE["user-name"]; ?></a>
+        <span class="link-history">></span>
+        <a href="dashboard.php" class="link-history">Dashboard</a>
+        <span class="link-history">></span>
+        <span class="link-history">Thông tin</span>
+        <br>
             <div class="justify-content-between d-flex">
                 <h3><?php echo $m_name?></h3>
                 <button  type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#setting-mic">Cài đặt <i class="bi bi-gear"></i></button>
@@ -110,11 +116,24 @@
             </div>
             <div id="status-static-auto">   
             </div>
+            <button onclick="autoChange()" class="btn btn-outline-dark" id="btn-automation"><i class="bi bi-cloud-rain-heavy"></i>Automation</button>
+            <br>
+            <br>
             <div id="status-static">
             </div>
             <div id="btn-power-show">
             </div>
         </div>
+                    <div style="width:500px;margin: 80px auto 80px auto">
+                        <div class="input-group mb-3">
+                            <input type="number" id="soil-up-val" class="form-control" placeholder="Ngưỡng trên" aria-label="Ngưỡng trên">
+                            <span class="input-group-text">Độ ẩm</span>
+                            <input type="number" id="soil-low-val" class="form-control" placeholder="Ngưỡng dưới" aria-label="Ngưỡng dưới">
+                            <button onclick="sendUpdate()" type="button" class="btn btn-primary">Chấp nhận</button>
+                        </div>
+                        <div style="color: red;" id="mess-alert-value"></div>
+                    </div>
+
     </div>
 
     <!-- Modal -->
@@ -125,37 +144,7 @@
         $sqlModal = $db->send($queryModal);
         $ModalRow = $sqlModal->fetch_assoc();
     ?>
-    <div style="color:black;" class="modal fade" id="setting-mic" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">chỉnh sửa</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="info-mic">
-                        <p>Name : <?php echo $ModalRow["microbit_name"];?></p>
-                        <p>Adafruit Name : <?php echo $ModalRow["ada_username"];?></p>
-                            <p>AIO key : <?php echo 'aio_'.$ModalRow["AIO_key"].$ModalRow["AIO_key_2"];?></p>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="number" id="soil-up-val" class="form-control" placeholder="Ngưỡng trên" aria-label="Ngưỡng trên">
-                            <span class="input-group-text">Độ ẩm</span>
-                            <input type="number" id="soil-low-val" class="form-control" placeholder="Ngưỡng dưới" aria-label="Ngưỡng dưới">
-                        </div>
-                        <div style="color: red;" id="mess-alert-value"></div>
-                        <button onclick="autoChange()" class="btn btn-outline-dark" id="btn-automation"><i class="bi bi-cloud-rain-heavy"></i></button>
-                        <span>Tự động tưới khi dưới ngưỡng, và dừng khi đạt ngưỡng.</span>
-                        <div style="color: blue;" id="mess-alert-auto"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
-                        <button onclick="sendUpdate()" type="button" class="btn btn-primary">Chấp nhận</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <input type="hidden" id="hidden-key" value="<?php echo 'aio_'.$ModalRow["AIO_key"].$ModalRow["AIO_key_2"];?>">
+    <input type="hidden" id="hidden-key" value="<?php echo 'aio_'.$ModalRow["AIO_key"].$ModalRow["AIO_key_2"];?>">
     <script src="../asset/js/detail.js"></script>
     </body>
 

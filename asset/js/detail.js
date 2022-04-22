@@ -83,6 +83,37 @@ class Btnpower {
         $("#btn-power-show").html("");
     }
 }
+class BumpAuto {
+    constructor() {
+        this.power = 0;
+        this.auto = 0;
+        this.upper;
+        this.lower;
+    }
+    update(power, auto, upper, lower, value) {
+        this.power = power;
+        this.auto = auto;
+        this.upper = upper;
+        this.lower = lower;
+        this.automation(value);
+    }
+    automation(value) {
+        if (this.auto === 1) {
+            if (value >= pump.upper) {
+                pump.power = 0;
+                powerMode = 0;
+                BtnPower.off();
+            } else if (value < pump.lower) {
+                pump.power = 1;
+                powerMode = 1;
+                BtnPower.on();
+            }
+        } else {
+            //
+        }
+    }
+}
+var pump = new BumpAuto();
 var BtnAuto = new Btnauto();
 var BtnPower = new Btnpower();
 updateValueSoil = () => {
@@ -182,6 +213,7 @@ setInterval(function() {
                         autoMode = 0;
                     }
                     $("#status-static-auto").html(mess2);
+                    pump.update(powerMode, autoMode, $("#soil-up-val").val(), $("#soil-low-val").val(), res.humi)
                     loopRun = true;
                 }
             });
@@ -189,7 +221,6 @@ setInterval(function() {
 }, 1000);
 autoChange = () => {
     var valueSend = 0;
-    $("#mess-alert-auto").html("Đang xử lí chế độ Tự động tưới.");
     if (autoMode == 1) valueSend = 0;
     else valueSend = 1;
     $.get("../model/switch.php", {
@@ -199,18 +230,9 @@ autoChange = () => {
             value: valueSend
         },
         function(data, status) {
-            if (status === 'success') {
-                if (valueSend == 1) {
-                    $("#mess-alert-auto").html("Chế độ Tự động tưới đã bật.");
-                } else {
-                    $("#mess-alert-auto").html("Chế độ Tự động tưới đã tắt.");
-                }
-
-            }
+            if (status === 'success') {}
         });
 }
-var modalELSetting = document.getElementById('setting-mic');
-var modalSetting = new bootstrap.Modal(modalELSetting);
 sendUpdate = () => {
     let upVal = $("#soil-up-val").val();
     let lowVal = $("#soil-low-val").val();
@@ -224,7 +246,6 @@ sendUpdate = () => {
             function(data, status) {
                 if (status === 'success') {
                     updateValueSoil();
-                    modalSetting.hide();
                     $("#mess-alert-value").html("");
                 }
             });
