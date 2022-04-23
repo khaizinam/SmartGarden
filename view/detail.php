@@ -80,6 +80,8 @@
         <span class="link-history">></span>
         <a href="dashboard.php" class="link-history">Dashboard</a>
         <span class="link-history">></span>
+        <a href="history.php?id=<?php echo $id?>" class="link-history">Lịch sử</a>
+        <span class="link-history">></span>
         <span class="link-history">Thông tin</span>
         <br>
             <div class="justify-content-between d-flex">
