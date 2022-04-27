@@ -2,7 +2,7 @@ const CANVAS = document.getElementById("ctx");
 const ctx = CANVAS.getContext("2d");
 const wrapper_canvas = document.getElementById("canvas");
 class ChartSoil {
-    constructor(up, dow) {
+    constructor() {
         this.ti_le = 24;
         this.ratio_screen = 4.
         this.WIDTH = 1600;
@@ -11,10 +11,6 @@ class ChartSoil {
         CANVAS.height = 400;
         console.log(CANVAS.width + " " + CANVAS.height);
         this.resize();
-        this.background(up, dow);
-    }
-    update(data) {
-        this.draw(data);
     }
     resize() {
         console.log(CANVAS.width + " " + CANVAS.height);
@@ -23,6 +19,7 @@ class ChartSoil {
         document.getElementById("canvas").style.height = wrapper_canvas.offsetWidth / 5 + "px";
     }
     background(up, dow) {
+        ctx.lineWidth = 1;
         ctx.strokeStyle = "black";
         ctx.beginPath();
         ctx.moveTo(100, 10);
@@ -37,17 +34,17 @@ class ChartSoil {
         ctx.lineTo(854.16, 10);
         ctx.stroke();
         ctx.strokeStyle = "red";
-        ctx.beginPath();
-        ctx.moveTo(100, 400 - ((dow * 3.5) + 40));
-        ctx.lineTo(1600, 400 - ((dow * 3.5) + 40));
-        ctx.stroke();
+        // ctx.beginPath();
+        // ctx.moveTo(100, 400 - ((dow * 3.5) + 40));
+        // ctx.lineTo(1600, 400 - ((dow * 3.5) + 40));
+        // ctx.stroke();
         ctx.font = "20px Georgia";
         ctx.fillStyle = "black";
         ctx.fillText("0%", 50, 360);
         ctx.fillText("50%", 50, 185);
         ctx.fillText("100%", 50, 20);
-        ctx.fillStyle = "red";
-        ctx.fillText(dow + "%", 50, 400 - ((dow * 3.5) + 40));
+        // ctx.fillStyle = "red";
+        // ctx.fillText(dow + "%", 50, 400 - ((dow * 3.5) + 40));
         ctx.fillStyle = "red";
         ctx.fillText("12h00", 820, 390);
     }
@@ -60,17 +57,29 @@ class ChartSoil {
         ctx.lineTo(x, y);
     }
     draw(data) {
-        ctx.strokeStyle = "#ADD8E6";
         ctx.lineWidth = 5;
+        ctx.strokeStyle = "blue";
+        ctx.fillStyle = "skyblue";
         ctx.beginPath();
         ctx.moveTo(100, 360);
         data.forEach((e) => {
-            this.drawLine(e[0], e[1], e[2]);
+            this.drawLine(parseInt(e[1]), parseInt(e[2]), parseInt(e[3]));
+        });
+        ctx.fill();
+        ctx.stroke();
+        ctx.strokeStyle = "red";
+        ctx.beginPath();
+        ctx.moveTo(100, 360);
+        data.forEach((e) => {
+            this.drawLine(parseInt(e[0]), parseInt(e[2]), parseInt(e[3]));
         });
         ctx.stroke();
+
+        this.background(45, 15);
+
     }
 }
-let data = [
+var dataTemp = [
     [25, 2, 15],
     [40, 3, 20],
     [60, 4, 20],
@@ -79,8 +88,23 @@ let data = [
     [80, 12, 30],
     [100, 18, 30]
 ]
-var chart = new ChartSoil(45, 15);
-chart.update(data);
+console.log(dataTemp);
+var chart = new ChartSoil();
+
+$.get("../model/chart.php", {
+        y: $("#input-year").val(),
+        m: $("#input-month").val(),
+        d: $("#input-day").val(),
+        id: $("#hide-value").val()
+    },
+    function(data, status) {
+        if (status === 'success') {
+            res = JSON.parse(data);
+            chart.draw(res);
+            console.log(res);
+        }
+    });
+
 addEventListener("resize", () => {
     chart.resize();
 })

@@ -85,29 +85,38 @@
         <div class="canvas" id="canvas">
             <canvas id="ctx" style="width: 100%; height: 100%;"></canvas>
         </div>
+        <div style="display: flex;margin-top:20px">
+            <div style="width: 20px;height:20px;background:blue"></div>
+            <span>:  Độ ẩm đất.</span>
+        </div>
+        <div style="display: flex;margin-top:20px">
+        <div style="width: 20px;height:20px;background:red"></div>
+            <span>:  Nhiệt độ.</span>
+        </div>
+       
         <?php 
+        if((!isset($_GET['y']) || !isset($_GET['m'])|| !isset($_GET['d']))||($_GET['y'] == "" || $_GET['m'] == "" || $_GET['d'] == "")){
+            $y = date("Y");
+            $m = date("m");
+            $d = date("d");
+            header("Location: history.php?id=$id&y=$y&m=$m&d=$d");
+        }
         if(isset($_GET['y'])){
             $y = $_GET['y'];
             $year = "AND year = '$y'";
-        }else {
-            $year = "";
-            $y = "";
         }
         if(isset($_GET['m'])){
             $m = $_GET['m'];
             $month = "AND month = '$m'";
-        }else {
-            $month = "";
-            $m = "";
         }
         if(isset($_GET['d'])){
             $d = $_GET['d'];
             $day = "AND day = '$d'";
-        }else{
-            $day = "";
-            $d = "";
-        } 
+        }
         ?>
+        <input type="hidden" id="input-year" value="<?php echo $y?>">
+        <input type="hidden" id="input-month" value="<?php echo $m?>">
+        <input type="hidden" id="input-day" value="<?php echo $d?>">
         <div style="margin-top: 20px;border-radius:20px;border:1px solid black;padding:20px 10px;">
             <h2>Lịch sử độ ẩm đất trong ngày</h2>
             <span><?php echo $d.' / '.$m.' / '.$y;?></span>
