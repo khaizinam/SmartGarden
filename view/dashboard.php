@@ -65,7 +65,7 @@
                         <td><?php echo  $row['key'];?></td>
                         <td>
                             <a href="./history.php?id=<?php echo  $row['microbit_id'];?>">Xem lịch sử</a>
-                            </td>
+                        </td>
                         <td>
                             <button onclick="editM(<?php echo  $row['microbit_id'];?>);" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-micr">Chỉnh sửa</button>
                         </td>
@@ -129,6 +129,7 @@
         });
     };
 </script>
+<script src="../asset/js/app.js"></script>
 </body>
 
 </html>

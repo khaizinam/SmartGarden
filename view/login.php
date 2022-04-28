@@ -80,6 +80,7 @@ if(!isset($_COOKIE["user-name"]) && !isset($_COOKIE["user-id"])){
             </div>
         </form>
     </div>
+    <script src="../asset/js/app.js"></script>
 </body>
 
 </html>

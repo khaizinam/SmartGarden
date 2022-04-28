@@ -80,6 +80,7 @@ if(isset($_SERVER['REQUEST_METHOD'])&&($_SERVER['REQUEST_METHOD'] == 'POST')){
            
         </form>
     </div>
+    <script src="../asset/js/app.js"></script>
 </body>
 
 </html>

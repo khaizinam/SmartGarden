@@ -82,8 +82,10 @@
         <span class="link-history">></span>
         <a href="history.php?id=<?php echo $id?>" class="link-history">Lịch sử</a>
         <span class="link-history">></span>
-        <span class="link-history">Thông tin</span>
-        <br>
+        <span class="link-history">Thông tin</span><br><br>
+        <a href="dashboard.php" type="button" class="btn btn-outline-light">Về Menu</a>
+        <a href="history.php?id=<?php echo $_GET['id'];?>" type="button" class="btn btn-outline-light">Lịch sử</a>
+        <br><br>
             <div class="justify-content-between d-flex">
                 <h3><?php echo $m_name?></h3>
             </div>
@@ -145,6 +147,7 @@
     ?>
     <input type="hidden" id="hidden-key" value="<?php echo 'aio_'.$ModalRow["AIO_key"].$ModalRow["AIO_key_2"];?>">
     <script src="../asset/js/detail.js"></script>
+    <script src="../asset/js/app.js"></script>
     </body>
 
 </html>
